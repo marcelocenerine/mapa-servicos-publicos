@@ -23,8 +23,13 @@ public class EstabelecimentoController {
 	@Inject
 	private EstabelecimentoBusiness business;
 	
-	@RequestMapping(value="/servicos/lng/{longitude}/lat/{latitute}/categorias/{categorias}", method=GET, produces="application/json")
-	public @ResponseBody List<Estabelecimento> buscar2(@PathVariable Double longitude, @PathVariable Double latitute, @PathVariable List<Categoria> categorias) {
+	@RequestMapping(value="/servicos/lng/{longitude}/lat/{latitute}/categorias/{categorias}", 
+					method=GET, 
+					produces="application/json;charset=UTF-8")
+	public @ResponseBody List<Estabelecimento> buscar(@PathVariable Double longitude, 
+													  @PathVariable Double latitute, 
+													  @PathVariable List<Categoria> categorias) {
+		
 		return business.buscar(categorias, new Coordenadas(longitude, latitute));
 	}
 	
