@@ -1,13 +1,18 @@
 package br.com.servicospublicos.model;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="estabelecimentos")
+@JsonSerialize(include=Inclusion.NON_NULL)
+@JsonIgnoreProperties(value={"status"})
 public class Estabelecimento {
 	
 	public enum Status {HIDDEN, VISIBLE}
 	
-	public enum Categoria {UBS, CARTORIO, INSS, RFB, ASS_SOCIAL}
+	public enum Categoria {UBS, CARTORIO, INSS, RFB, ASS_SOCIAL, COM_TERAP}
 	
 	private String id;
 	private Categoria categoria;
