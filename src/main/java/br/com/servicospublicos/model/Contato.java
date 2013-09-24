@@ -1,17 +1,11 @@
 package br.com.servicospublicos.model;
 
+import java.util.List;
+
 public class Contato {
 
-	private String telefone;
 	private String email;
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+	private List<String> telefones;
 
 	public String getEmail() {
 		return email;
@@ -19,5 +13,13 @@ public class Contato {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<String> getTelefones() {
+		return telefones;
+	}
+
+	public void setTelefones(List<String> telefones) {
+		this.telefones = telefones;
 	}
 }
