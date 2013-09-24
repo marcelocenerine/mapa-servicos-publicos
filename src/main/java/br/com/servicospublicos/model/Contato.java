@@ -2,6 +2,10 @@ package br.com.servicospublicos.model;
 
 import java.util.List;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+
+@JsonSerialize(include=Inclusion.NON_NULL)
 public class Contato {
 
 	private String email;
