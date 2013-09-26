@@ -12,7 +12,7 @@ public class Estabelecimento {
 	
 	public enum Status {HIDDEN, VISIBLE}
 	
-	public enum Categoria {UBS, CARTORIO, INSS, RFB, ASS_SOCIAL, COM_TERAP}
+	public enum Categoria {UBS, CARTORIO, INSS, RFB, ASS_SOCIAL, COM_TERAP, SINE, ENS_BASICO}
 	
 	private String id;
 	private Categoria categoria;
@@ -20,6 +20,7 @@ public class Estabelecimento {
 	private Localizacao localizacao;
 	private Contato contato;
 	private String atendimento;
+	private Boolean publico;
 	private Status status;
 	
 	public String getId() {
@@ -70,6 +71,14 @@ public class Estabelecimento {
 		this.atendimento = atendimento;
 	}
 	
+	public Boolean getPublico() {
+		return publico;
+	}
+
+	public void setPublico(Boolean publico) {
+		this.publico = publico;
+	}
+
 	public Status getStatus() {
 		return status;
 	}
