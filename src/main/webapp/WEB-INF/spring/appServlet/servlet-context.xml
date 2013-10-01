@@ -23,14 +23,8 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<beans:bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-		<beans:property name="objectMapper">
-            <beans:bean class="org.codehaus.jackson.map.ObjectMapper">
-                <beans:property name="serializationInclusion" value="NON_NULL"/>
-            </beans:bean>
-        </beans:property>
-	</beans:bean>
-	
+	<beans:bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+
 	<beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<beans:property name="messageConverters">
 			<beans:list>
