@@ -19,6 +19,7 @@ public class Estabelecimento {
 	private String nome;
 	private Localizacao localizacao;
 	private Contato contato;
+	private String site;
 	private String atendimento;
 	private Boolean publico;
 	private Status status;
@@ -85,6 +86,14 @@ public class Estabelecimento {
 	
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
 	}
 
 }
