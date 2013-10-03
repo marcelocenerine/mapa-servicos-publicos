@@ -23,7 +23,7 @@ public class EstabelecimentoBusinessImpl implements EstabelecimentoBusiness {
 	@Inject
 	private EstabelecimentoRepository repository;
 	
-	private static final Distance MAX_DISTANCE = new Distance(50, Metrics.KILOMETERS);
+	private static final Distance MAX_DISTANCE = new Distance(25, Metrics.KILOMETERS);
 
 	public List<Estabelecimento> buscar(List<Categoria> categorias,	Coordenadas coordenadas) {
 		if (categorias.isEmpty()) return Collections.emptyList();
