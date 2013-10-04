@@ -15,7 +15,7 @@
 <div id="banner" class="banner-wrap">
 	<div>
 		<h1 id="logo">
-			<a href="index.html">
+			<a href="/home">
 				<img src="./img/mapa-servicos-publicos-logo.gif" alt="Mapa de Servi&ccedil;os P&uacute;blicos" width="414" height="58" />
 			</a>
 		</h1>
