@@ -7,16 +7,16 @@
 	getLocation();
 	
 	function getLocation() {
-		var latdefault = -10.0000000;
-		var longdefault = -48.000000;
-		initialize(latdefault, longdefault, 4, 2);
+		var latdefault = -23.5000000;
+		var longdefault = -47.500000;
+		initialize(latdefault, longdefault, 11, 2);
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
 				function (position) {
 					initialize(position.coords.latitude, position.coords.longitude, 15, 1);
 				},
 				function (erro) {
-					initialize(latdefault, longdefault, 4, 2);
+					initialize(latdefault, longdefault, 11, 2);
 				}
 			);
 		}
