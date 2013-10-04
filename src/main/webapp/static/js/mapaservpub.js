@@ -7,22 +7,22 @@
 	getLocation();
 	
 	function getLocation() {
-		var latdefault = -23.5000000;
-		var longdefault = -47.500000;
-		initialize(latdefault, longdefault, 11, 2);
+		var latdefault = -13.0000000;
+		var longdefault = -47.000000;
+		initialize(latdefault, longdefault, 4, 2, false);
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
 				function (position) {
-					initialize(position.coords.latitude, position.coords.longitude, 15, 1);
+					initialize(position.coords.latitude, position.coords.longitude, 15, 1, true);
 				},
 				function (erro) {
-					initialize(latdefault, longdefault, 11, 2);
+					initialize(latdefault, longdefault, 4, 2, false);
 				}
 			);
 		}
 	}
 	
-	function initialize(latitude, longitude, zoom, enderecodesc) {
+	function initialize(latitude, longitude, zoom, enderecodesc, pontosmapa) {
 		var latlng = new google.maps.LatLng(latitude, longitude);
 		var options = {
 			zoom: zoom,
@@ -47,7 +47,12 @@
 			}
 		});		
 		
-		
+		if (pontosmapa == true) {
+			setPontosMapa(latitude, longitude);
+		}
+	}
+	
+	function setPontosMapa(latitude, longitude) {
 		$.getJSON('rest/api/servicos/lng/'+longitude+'/lat/'+latitude+'/categorias/INSS,RFB,ASS_SOCIAL,UBS,ENS_BASICO,CARTORIO', function(pontos) {
 			$.each(pontos, function(index, ponto) {
 					var marker = new google.maps.Marker({
@@ -80,8 +85,9 @@
 						}
 					})(marker))
 			});
-		});
+		});		
 	}
+	
 	
 	function carregarNoMapa(endereco) {
 		geocoder.geocode({ 'address': endereco + ', Brasil', 'region': 'BR' }, function (results, status) {
@@ -94,11 +100,12 @@
 					marker.setPosition(location);
 					map.setCenter(location);
 					map.setZoom(16);
+					setPontosMapa(latitude, longitude);
 				}
 			}
 		});
 	}
-
+	
 	$("#btnEndereco").click(function() {
 		if($("#txtEndereco").val() == "") {
 			$("#txtEndereco").val("Sorocaba, São Paulo, Brasil");
