@@ -27,18 +27,73 @@
 		</form>
 	</div>
 </div>
-<div align="center">
-	<img src="./img/CARTORIO.png" alt="Cartorio" />
-	<img src="./img/ENS_BASICO.png" alt="Escola de Ensino Basico" />
-	<img src="./img/ENS_SUPERIOR.png" alt="Escola de Ensino Superior" />
-	<img src="./img/DELEGACIA.png" alt="Delegacia de Polícia" />
-	<img src="./img/RFB.png" alt="Receita Federal do Brasil" />
-	<img src="./img/ASS_SOCIAL.png" alt="Assistencia Social" />
-	<img src="./img/INSS.png" alt="Previdencia Social" />
-	<img src="./img/COM_TERAP.png" alt="Comunidade Terapeutica" />
-	<img src="./img/MTE.png" alt="Ministerio do Trabalho" />
-	<img src="./img/UBS.png" alt="Unidade Basica de Saude" />
+<div align="center" style="float: left; margin-left: 300px">
+	<img src="./img/CORREIOS.png" alt="Correios" />
+	<div style="margin-top: -16px;" class="legendas">
+		Agencia<div style="margin-top: -14px;">dos Correios</div>
+	</div>
 </div>
+<div align="center" style="float: left; margin-left: 10px;">
+	<img src="./img/CARTORIO.png" alt="Cartorio" />
+	<div style="margin-top: -16px;" class="legendas">
+		Cartorio<div style="margin-top: -14px;">de Registros</div>
+	</div>
+</div>
+<div align="center" style="float: left; margin-left: 10px;">
+	<img src="./img/ENS_BASICO.png" alt="Escola de Ensino Basico" />	
+	<div style="margin-top: -16px;" class="legendas">
+		Ensino<div style="margin-top: -14px;">Basico</div>
+	</div>
+</div>
+<div align="center" style="float: left; margin-left: 10px;">
+	<img src="./img/ENS_SUPERIOR.png" alt="Escola de Ensino Superior" />
+	<div style="margin-top: -16px;" class="legendas">
+		Ensino<div style="margin-top: -14px;">Superior</div>
+	</div>
+</div>
+<div align="center" style="float: left; margin-left: 10px;">
+	<img src="./img/DELEGACIA.png" alt="Delegacia de Polícia" />
+	<div style="margin-top: -16px;" class="legendas">
+		Delegacia<div style="margin-top: -14px;">de Policia</div>
+	</div>
+</div>
+<div align="center" style="float: left; margin-left: 10px;">
+	<img src="./img/RFB.png" alt="Receita Federal do Brasil" />
+	<div style="margin-top: -16px;" class="legendas">
+		Receita<div style="margin-top: -14px;">Federal</div>
+	</div>
+</div>
+<div align="center" style="float: left; margin-left: 10px;">
+	<img src="./img/ASS_SOCIAL.png" alt="Assistencia Social" />
+	<div style="margin-top: -16px;" class="legendas">
+		Assistencia<div style="margin-top: -14px;">Social</div>
+	</div>
+</div>
+<div align="center" style="float: left; margin-left: 10px;">
+	<img src="./img/INSS.png" alt="Previdencia Social" />
+	<div style="margin-top: -16px;" class="legendas">
+		Previdencia<div style="margin-top: -14px;">Social</div>
+	</div>
+</div>
+<div align="center" style="float: left; margin-left: 10px;">
+	<img src="./img/COM_TERAP.png" alt="Comunidade Terapeutica" />
+	<div style="margin-top: -16px;" class="legendas">
+		Comunidade<div style="margin-top: -14px;">Terapeutica</div>
+	</div>
+</div>
+<div align="center" style="float: left; margin-left: 10px;">
+	<img src="./img/MTE.png" alt="Postos de Trabalho" />
+	<div style="margin-top: -16px;" class="legendas">
+		Postos<div style="margin-top: -14px;">de Trabalho</div>
+	</div>
+</div>	
+<div align="center" style="float: left; margin-left: 10px;">
+	<img src="./img/UBS.png" alt="Unidade Basica de Saude" />
+	<div style="margin-top: -16px;" class="legendas">
+		Unidade Basica<div style="margin-top: -14px;">de Saude</div>
+	</div>
+</div>
+
 <div id="mapa"></div>
 <div class="row footer">
 	Quem Somos | Como Funciona | Contato

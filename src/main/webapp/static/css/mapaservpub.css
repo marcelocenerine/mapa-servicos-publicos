@@ -185,6 +185,12 @@ a.bttn {
 	padding: 0.5em 0.75em;
 }
 
+.legendas {
+	text-align: center;
+	font-size: 0.7em;
+	color: #3a6fc1;
+}
+
 .footer {
 	color: #444;
 	text-align: center;
