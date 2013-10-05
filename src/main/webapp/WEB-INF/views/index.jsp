@@ -30,13 +30,13 @@
 <div align="center" style="float: left; margin-left: 300px">
 	<img src="./img/CORREIOS.png" alt="Correios" />
 	<div style="margin-top: -16px;" class="legendas">
-		Agencia<div style="margin-top: -14px;">dos Correios</div>
+		Agencia dos<div style="margin-top: -14px;">Correios</div>
 	</div>
 </div>
 <div align="center" style="float: left; margin-left: 10px;">
 	<img src="./img/CARTORIO.png" alt="Cartorio" />
 	<div style="margin-top: -16px;" class="legendas">
-		Cartorio<div style="margin-top: -14px;">de Registros</div>
+		Cartorio de<div style="margin-top: -14px;">Registros</div>
 	</div>
 </div>
 <div align="center" style="float: left; margin-left: 10px;">
@@ -84,7 +84,7 @@
 <div align="center" style="float: left; margin-left: 10px;">
 	<img src="./img/MTE.png" alt="Postos de Trabalho" />
 	<div style="margin-top: -16px;" class="legendas">
-		Postos<div style="margin-top: -14px;">de Trabalho</div>
+		Postos de<div style="margin-top: -14px;">Trabalho</div>
 	</div>
 </div>	
 <div align="center" style="float: left; margin-left: 10px;">

@@ -1,11 +1,13 @@
 	var map;
 	var marker;
-	var geocoder;	
+	var geocoder;
+	var servicos = 'CORREIOS, CARTORIO, ENS_BASICO, ENS_SUPERIOR, RFB, ASS_SOCIAL, INSS, COM_TERAP, SINE, UBS';
 			  
 	$(document).ready(function () {
 	
 	getLocation();
 	
+	//Busca geolocalizacao do usuario
 	function getLocation() {
 		var latdefault = -13.0000000;
 		var longdefault = -47.000000;
@@ -13,7 +15,7 @@
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
 				function (position) {
-					initialize(position.coords.latitude, position.coords.longitude, 15, 1, true);
+					initialize(position.coords.latitude, position.coords.longitude, 14, 1, true);
 				},
 				function (erro) {
 					initialize(latdefault, longdefault, 4, 2, false);
@@ -22,6 +24,7 @@
 		}
 	}
 	
+	//Inicializacao do site
 	function initialize(latitude, longitude, zoom, enderecodesc, pontosmapa) {
 		var latlng = new google.maps.LatLng(latitude, longitude);
 		var options = {
@@ -37,7 +40,8 @@
 		marker = new google.maps.Marker({
 			map: map,
 			draggable: false,
-		});	
+		});
+		marker.setPosition(latlng);
 
 		geocoder.geocode({'latLng': latlng}, function(results, status) {
 		  if (status == google.maps.GeocoderStatus.OK) {
@@ -48,12 +52,37 @@
 		});		
 		
 		if (pontosmapa == true) {
-			setPontosMapa(latitude, longitude);
+			setPontosMapa(latitude, longitude, servicos);
 		}
 	}
 	
-	function setPontosMapa(latitude, longitude) {
-		$.getJSON('rest/api/servicos/lng/'+longitude+'/lat/'+latitude+'/categorias/INSS,RFB,ASS_SOCIAL,UBS,ENS_BASICO,CARTORIO', function(pontos) {
+	//Sugere enderecos  eexibe no mapa o local clicado
+	$("#txtEndereco").autocomplete({
+		source: function (request, response) {
+			geocoder.geocode({ 'address': request.term + ', Brasil', 'region': 'BR' }, function (results, status) {
+				response($.map(results, function (item) {
+					return {
+						label: item.formatted_address,
+						value: item.formatted_address,
+						latitude: item.geometry.location.lat(),
+          				longitude: item.geometry.location.lng()
+					}
+				}));
+			})
+		},
+		select: function (event, ui) {
+			var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
+			marker.setPosition(location);
+			map.setCenter(location);
+			map.setZoom(14);
+			setPontosMapa(ui.item.latitude, ui.item.longitude, servicos);
+		}
+	});
+	
+	
+	//Exibe no mapa servicos publicos desejados
+	function setPontosMapa(latitude, longitude, servicos) {
+		$.getJSON('rest/api/servicos/lng/'+longitude+'/lat/'+latitude+'/categorias/'+servicos, function(pontos) {
 			$.each(pontos, function(index, ponto) {
 					var marker = new google.maps.Marker({
 						position: new google.maps.LatLng(ponto.localizacao.coordenadas.latitude, ponto.localizacao.coordenadas.longitude),
@@ -87,58 +116,5 @@
 			});
 		});		
 	}
-	
-	
-	function carregarNoMapa(endereco) {
-		geocoder.geocode({ 'address': endereco + ', Brasil', 'region': 'BR' }, function (results, status) {
-			if (status == google.maps.GeocoderStatus.OK) {
-				if (results[0]) {
-					latitude = results[0].geometry.location.lat();
-					longitude = results[0].geometry.location.lng();
-					$('#txtEndereco').val(results[0].formatted_address);
-					var location = new google.maps.LatLng(latitude, longitude);
-					marker.setPosition(location);
-					map.setCenter(location);
-					map.setZoom(16);
-					setPontosMapa(latitude, longitude);
-				}
-			}
-		});
-	}
-	
-	$("#btnEndereco").click(function() {
-		if($("#txtEndereco").val() == "") {
-			$("#txtEndereco").val("Sorocaba, São Paulo, Brasil");
-		}
-		carregarNoMapa($("#txtEndereco").val());
-	})
-	
-	$("#txtEndereco").blur(function() {
-		if($(this).val() == "") {
-			$("#txtEndereco").val("Sorocaba, São Paulo, Brasil");
-		}
-		carregarNoMapa($(this).val());
-	})
-	
-	$("#txtEndereco").autocomplete({
-		source: function (request, response) {
-			geocoder.geocode({ 'address': request.term + ', Brasil', 'region': 'BR' }, function (results, status) {
-				response($.map(results, function (item) {
-					return {
-						label: item.formatted_address,
-						value: item.formatted_address,
-						latitude: item.geometry.location.lat(),
-          				longitude: item.geometry.location.lng()
-					}
-				}));
-			})
-		},
-		select: function (event, ui) {
-			var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
-			marker.setPosition(location);
-			map.setCenter(location);
-			map.setZoom(16);
-		}
-	});
 	
 });
