@@ -2,6 +2,7 @@
 	var marker;
 	var geocoder;
 	var markers = [];
+	var infowindow = new google.maps.InfoWindow();
 	var servicos = 'CORREIOS, CARTORIO, ENS_BASICO, ENS_SUPERIOR, RFB, ASS_SOCIAL, INSS, COM_TERAP, SINE, UBS';
 			  
 	$(document).ready(function () {
@@ -94,7 +95,6 @@
 					});
 					rastrearMarcador(marker);
 
-					var infowindow = new google.maps.InfoWindow(), marker;
 					google.maps.event.addListener(marker, 'click', (function(marker, i) {
 						return function() {
 							var msgbalao = "<p><strong>" + ponto.categoria.descricao + "</strong></p>";
@@ -106,10 +106,10 @@
 							}
 							if (ponto.contato) {
 								if (ponto.contato.telefones) {
-									msgbalao += "<p>Telefones: " + ponto.contato.telefones + "</p>";
+									msgbalao += "<p>Telefones: " + ponto.contato.telefones.join(', ') + "</p>";
 								}
 								if (ponto.contato.email) {
-									msgbalao += "<p>Email: " + ponto.contato.email; + "</p>"
+									msgbalao += "<p>Email: " + ponto.contato.email; + "</p>";
 								}
 							}
 							infowindow.setContent(msgbalao);
