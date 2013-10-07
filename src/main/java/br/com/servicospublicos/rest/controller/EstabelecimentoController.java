@@ -1,4 +1,4 @@
-package br.com.servicospublicos.controller.rest;
+package br.com.servicospublicos.rest.controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.servicospublicos.business.EstabelecimentoBusiness;
+import br.com.servicospublicos.model.Categoria;
 import br.com.servicospublicos.model.Coordenadas;
 import br.com.servicospublicos.model.Estabelecimento;
-import br.com.servicospublicos.model.Estabelecimento.Categoria;
 
 @Controller
 @RequestMapping("rest/api")

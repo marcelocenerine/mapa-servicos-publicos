@@ -86,35 +86,35 @@
 			$.each(pontos, function(index, ponto) {
 					var marker = new google.maps.Marker({
 						position: new google.maps.LatLng(ponto.localizacao.coordenadas.latitude, ponto.localizacao.coordenadas.longitude),
-						title: ponto.categoria,
+						title: ponto.categoria.descricao,
 						map: map,
-						icon: 'img/' + ponto.categoria + '.png'
+						icon: 'img/' + ponto.categoria.tipo + '.png'
 					});
 
 					var infowindow = new google.maps.InfoWindow(), marker;
 					google.maps.event.addListener(marker, 'click', (function(marker, i) {
 						return function() {
-							var msgbalao = "";
+							var msgbalao = "<p><strong>" + ponto.categoria.descricao + "</strong></p>";
 							if (ponto.nome) {
-								msgbalao += ponto.nome;
+								msgbalao += "<p>" + ponto.nome + "</p>";
 							}
 							if (ponto.atendimento) {
-								msgbalao += "<br>ATENDIMENTO: " + ponto.atendimento;
+								msgbalao += "<p>Atendimento: " + ponto.atendimento + "</p>";
 							}
 							if (ponto.contato) {
 								if (ponto.contato.telefones) {
-									msgbalao += "<br>TELEFONE: " + ponto.contato.telefones;
+									msgbalao += "<p>Telefones: " + ponto.contato.telefones + "</p>";
 								}
 								if (ponto.contato.email) {
-									msgbalao += "<br>EMAIL: " + ponto.contato.email;
+									msgbalao += "<p>Email: " + ponto.contato.email; + "</p>"
 								}
 							}
 							infowindow.setContent(msgbalao);
 							infowindow.open(map, marker);
-						}
-					})(marker))
+						};
+					})(marker));
 			});
-		});		
+		});	
 	}
 	
 });

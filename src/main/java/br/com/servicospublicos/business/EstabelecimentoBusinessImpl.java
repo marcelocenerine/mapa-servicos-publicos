@@ -12,9 +12,9 @@ import org.springframework.data.mongodb.core.geo.Metrics;
 import org.springframework.data.mongodb.core.geo.Point;
 import org.springframework.stereotype.Service;
 
+import br.com.servicospublicos.model.Categoria;
 import br.com.servicospublicos.model.Coordenadas;
 import br.com.servicospublicos.model.Estabelecimento;
-import br.com.servicospublicos.model.Estabelecimento.Categoria;
 import br.com.servicospublicos.repository.EstabelecimentoRepository;
 
 @Service

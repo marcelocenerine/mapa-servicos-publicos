@@ -12,8 +12,6 @@ public class Estabelecimento {
 	
 	public enum Status {HIDDEN, VISIBLE}
 	
-	public enum Categoria {UBS, CARTORIO, INSS, RFB, ASS_SOCIAL, COM_TERAP, SINE, ENS_BASICO, ENS_SUPERIOR, CORREIOS}
-	
 	private String id;
 	private Categoria categoria;
 	private String nome;
