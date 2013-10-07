@@ -31,13 +31,13 @@
 <div align="center" style="float: left; margin-left: 300px">
 	<img src="img/CORREIOS.png" alt="Correios" />
 	<div style="margin-top: -16px;" class="legendas">
-		Agencia dos<div style="margin-top: -14px;">Correios</div>
+		Agência dos<div style="margin-top: -14px;">Correios</div>
 	</div>
 </div>
 <div align="center" style="float: left; margin-left: 10px;">
 	<img src="img/CARTORIO.png" alt="Cartórios" />
 	<div style="margin-top: -16px;" class="legendas">
-		Cartorio de<div style="margin-top: -14px;">Cartórios</div>
+		Cartório de<div style="margin-top: -14px;">Cartórios</div>
 	</div>
 </div>
 <div align="center" style="float: left; margin-left: 10px;">
@@ -79,7 +79,7 @@
 <div align="center" style="float: left; margin-left: 10px;">
 	<img src="img/COM_TERAP.png" alt="Comunidade Terapêutica" />
 	<div style="margin-top: -16px;" class="legendas">
-		Comunidade<div style="margin-top: -14px;">Terapeutica</div>
+		Comunidade<div style="margin-top: -14px;">Terapêutica</div>
 	</div>
 </div>
 <div align="center" style="float: left; margin-left: 10px;">
