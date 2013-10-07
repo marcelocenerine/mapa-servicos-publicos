@@ -100,10 +100,10 @@ a:hover, a:active {
 	color: #FFF;
 }
 
-img {
-	max-width: 100%;
-	border: 0px;
-}
+/* img { */
+/* 	max-width: 100%; */
+/* 	border: 0px; */
+/* } */
 
 hr {
 	border: none;
