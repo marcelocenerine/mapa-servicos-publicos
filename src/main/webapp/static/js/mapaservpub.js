@@ -1,6 +1,7 @@
 	var map;
 	var marker;
 	var geocoder;
+	var markers = [];
 	var servicos = 'CORREIOS, CARTORIO, ENS_BASICO, ENS_SUPERIOR, RFB, ASS_SOCIAL, INSS, COM_TERAP, SINE, UBS';
 			  
 	$(document).ready(function () {
@@ -66,9 +67,9 @@
 						value: item.formatted_address,
 						latitude: item.geometry.location.lat(),
           				longitude: item.geometry.location.lng()
-					}
+					};
 				}));
-			})
+			});
 		},
 		select: function (event, ui) {
 			var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
@@ -82,6 +83,7 @@
 	
 	//Exibe no mapa servicos publicos desejados
 	function setPontosMapa(latitude, longitude, servicos) {
+		limparMarcadores();
 		$.getJSON('rest/api/servicos/lng/'+longitude+'/lat/'+latitude+'/categorias/'+servicos, function(pontos) {
 			$.each(pontos, function(index, ponto) {
 					var marker = new google.maps.Marker({
@@ -90,6 +92,7 @@
 						map: map,
 						icon: 'img/' + ponto.categoria.tipo + '.png'
 					});
+					rastrearMarcador(marker);
 
 					var infowindow = new google.maps.InfoWindow(), marker;
 					google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -115,6 +118,17 @@
 					})(marker));
 			});
 		});	
+	}
+	
+	function rastrearMarcador(marker) {
+		markers.push(marker);
+	}
+	
+	function limparMarcadores() {
+		$(markers).each(function(i, e) { 
+			e.setMap(null);
+			}
+		);
 	}
 	
 });
