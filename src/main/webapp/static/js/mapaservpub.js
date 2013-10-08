@@ -129,6 +129,7 @@
 			e.setMap(null);
 			}
 		);
+		markers = [];
 	}
 	
 });

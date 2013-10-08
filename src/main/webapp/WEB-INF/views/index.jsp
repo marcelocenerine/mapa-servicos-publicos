@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html> 
 <html lang="en"> 
 <head> 
@@ -28,72 +30,18 @@
 		</form>
 	</div>
 </div>
-<div align="center" style="float: left; margin-left: 300px">
-	<img src="img/CORREIOS.png" alt="Correios" />
-	<div style="margin-top: -16px;" class="legendas">
-		Agência dos<div style="margin-top: -14px;">Correios</div>
-	</div>
+
+<div class="div-categorias">
+	<c:forEach items="${categorias}" var="categoria">
+		<span class="categoria">
+			<img src="img/${categoria}.png" alt="${categoria.descricao}" />
+			<div class="legendas">
+				${categoria.descricao}
+			</div>
+		</span>
+	</c:forEach>
 </div>
-<div align="center" style="float: left; margin-left: 10px;">
-	<img src="img/CARTORIO.png" alt="Cartórios" />
-	<div style="margin-top: -16px;" class="legendas">
-		Cartório de<div style="margin-top: -14px;">Cartórios</div>
-	</div>
-</div>
-<div align="center" style="float: left; margin-left: 10px;">
-	<img src="img/ENS_BASICO.png" alt="Escolas de Ensino Básico" />	
-	<div style="margin-top: -16px;" class="legendas">
-		Ensino<div style="margin-top: -14px;">Básico</div>
-	</div>
-</div>
-<div align="center" style="float: left; margin-left: 10px;">
-	<img src="img/ENS_SUPERIOR.png" alt="Escolas de Ensino Superior" />
-	<div style="margin-top: -16px;" class="legendas">
-		Ensino<div style="margin-top: -14px;">Superior</div>
-	</div>
-</div>
-<div align="center" style="float: left; margin-left: 10px;">
-	<img src="img/DELEGACIA.png" alt="Delegacias de Polícia" />
-	<div style="margin-top: -16px;" class="legendas">
-		Delegacia<div style="margin-top: -14px;">de Policia</div>
-	</div>
-</div>
-<div align="center" style="float: left; margin-left: 10px;">
-	<img src="img/RFB.png" alt="Receita Federal do Brasil" />
-	<div style="margin-top: -16px;" class="legendas">
-		Receita<div style="margin-top: -14px;">Federal</div>
-	</div>
-</div>
-<div align="center" style="float: left; margin-left: 10px;">
-	<img src="img/ASS_SOCIAL.png" alt="Assistencia Social" />
-	<div style="margin-top: -16px;" class="legendas">
-		Assistência<div style="margin-top: -14px;">Social</div>
-	</div>
-</div>
-<div align="center" style="float: left; margin-left: 10px;">
-	<img src="img/INSS.png" alt="Previdência Social" />
-	<div style="margin-top: -16px;" class="legendas">
-		Previdência<div style="margin-top: -14px;">Social</div>
-	</div>
-</div>
-<div align="center" style="float: left; margin-left: 10px;">
-	<img src="img/COM_TERAP.png" alt="Comunidade Terapêutica" />
-	<div style="margin-top: -16px;" class="legendas">
-		Comunidade<div style="margin-top: -14px;">Terapêutica</div>
-	</div>
-</div>
-<div align="center" style="float: left; margin-left: 10px;">
-	<img src="img/MTE.png" alt="Postos de Trabalho" />
-	<div style="margin-top: -16px;" class="legendas">
-		Postos de<div style="margin-top: -14px;">Trabalho</div>
-	</div>
-</div>	
-<div align="center" style="float: left; margin-left: 10px;">
-	<img src="img/UBS.png" alt="Unidade Básica de Saude" />
-	<div style="margin-top: -16px;" class="legendas">
-		Unidade Básica<div style="margin-top: -14px;">de Saude</div>
-	</div>
-</div>
+
 
 <div id="mapa"></div>
 <div class="row footer">

@@ -7,16 +7,16 @@ import br.com.servicospublicos.rest.serialization.CategoriaSerializer;
 @JsonSerialize(using=CategoriaSerializer.class)
 public enum Categoria {
 	
-	UBS("Unidade Básica de Saúde"), 
-	CARTORIO("Cartório"), 
-	INSS("INSS"), 
-	RFB("Receita Federal"), 
 	ASS_SOCIAL("Assistência Social"), 
+	CARTORIO("Cartório"), 
 	COM_TERAP("Comunidade Terapêutica"), 
-	SINE("Sistema Nacional de Emprego - SINE"), 
+	CORREIOS("Correios"),
 	ENS_BASICO("Escola Ensino Básico"), 
 	ENS_SUPERIOR("Escola Ensino Superior"), 
-	CORREIOS("Correios");
+	INSS("INSS"), 
+	RFB("Receita Federal"), 
+	SINE("Sistema Nacional de Emprego"), 
+	UBS("Unidade Básica de Saúde"); 
 	
 	private String descricao;
 	
