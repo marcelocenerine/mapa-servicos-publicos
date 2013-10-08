@@ -13,6 +13,7 @@ function showWhereIam() {
 		navigator.geolocation.getCurrentPosition(
 			function (position) {
 				defineSearchPlace(position.coords.latitude, position.coords.longitude);
+				translateLocationToAddress(position.coords.latitude, position.coords.longitude, $("#txtEndereco"));
 				loadPoints(position.coords.latitude, position.coords.longitude);
 			}
 		);
@@ -28,6 +29,16 @@ function defineSearchPlace(lat, lng) {
 	marker.setPosition(location);
 	map.setCenter(location);
 	map.setZoom(placeZoom);
+}
+
+function translateLocationToAddress(lat, lng, element) {
+	var location = new google.maps.LatLng(lat, lng);
+	geocoder.geocode({'latLng' : location}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			if (results[3]) 
+				$(element).val(results[3].formatted_address);
+		}
+	});
 }
 
 function loadPoints(latitude, longitude) {
