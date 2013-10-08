@@ -2,17 +2,16 @@ package br.com.servicospublicos.repository;
 
 import java.util.List;
 
-import org.springframework.data.mongodb.core.geo.Distance;
-import org.springframework.data.mongodb.core.geo.Point;
-import org.springframework.data.mongodb.repository.MongoRepository;
-
 import br.com.servicospublicos.model.Categoria;
+import br.com.servicospublicos.model.Coordenadas;
 import br.com.servicospublicos.model.Estabelecimento;
-import br.com.servicospublicos.model.Estabelecimento.Status;
 
-public interface EstabelecimentoRepository extends MongoRepository<Estabelecimento, String> {
+public interface EstabelecimentoRepository {
 
 	Estabelecimento findById(String id);
 	
-	List<Estabelecimento> findByCategoriaInAndLocalizacaoCoordenadasNearAndStatus(List<Categoria> categorias, Point location, Distance distance, Status status);
+	List<Estabelecimento> findByCategoriaAndCoordenadas(Categoria categoria, Coordenadas coordenadas, Double distancia, Integer maxResults);
+	
+	@Deprecated
+	List<Estabelecimento> findByCategoriasAndCoordenadas(List<Categoria> categorias, Coordenadas coordenadas, Double distancia, Integer maxResults);
 }

@@ -23,14 +23,20 @@ public class EstabelecimentoController {
 	@Inject
 	private EstabelecimentoBusiness business;
 	
-	@RequestMapping(value="/servicos/lng/{longitude}/lat/{latitute}/categorias/{categorias}", 
-					method=GET, 
-					produces="application/json;charset=UTF-8")
-	public @ResponseBody List<Estabelecimento> buscar(@PathVariable Double longitude, 
-													  @PathVariable Double latitute, 
-													  @PathVariable List<Categoria> categorias) {
-		
-		return business.buscar(categorias, new Coordenadas(longitude, latitute));
+	
+	@RequestMapping(value="/servicos/lng/{longitude}/lat/{latitute}/categoria/{categoria}", method=GET, produces="application/json;charset=UTF-8")
+	public @ResponseBody List<Estabelecimento> buscar(@PathVariable Double longitude, @PathVariable Double latitute, @PathVariable Categoria categoria) {
+		return business.buscar(categoria, Coordenadas.from(longitude, latitute));
+	}
+	
+	@RequestMapping(value="/servicos/lng/{longitude}/lat/{latitute}/categoria/{categoria}/distancia/{distancia}/limite/{limite}", method=GET, produces="application/json;charset=UTF-8")
+	public @ResponseBody List<Estabelecimento> buscar(@PathVariable Double longitude, @PathVariable Double latitute, @PathVariable Categoria categoria, @PathVariable Double distancia, @PathVariable Integer limite) {
+		return business.buscar(categoria, Coordenadas.from(longitude, latitute), distancia, limite);
+	}
+	
+	@RequestMapping(value="/servicos/lng/{longitude}/lat/{latitute}/categorias/{categorias}", method=GET, produces="application/json;charset=UTF-8")
+	public @ResponseBody List<Estabelecimento> buscar(@PathVariable Double longitude, @PathVariable Double latitute, @PathVariable List<Categoria> categorias) {
+		return business.buscar(categorias, Coordenadas.from(longitude, latitute));
 	}
 	
 }

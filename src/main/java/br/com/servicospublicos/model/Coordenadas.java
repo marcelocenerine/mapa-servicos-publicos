@@ -11,9 +11,13 @@ public class Coordenadas {
 	
 	public Coordenadas() {}
 	
-	public Coordenadas(Double longitude, Double latitude) {
+	private Coordenadas(Double longitude, Double latitude) {
 		this.longitude = longitude;
 		this.latitude = latitude;
+	}
+
+	public static Coordenadas from(Double longitude, Double latitude) {
+		return new Coordenadas(longitude, latitude);
 	}
 
 	public Double getLongitude() {
