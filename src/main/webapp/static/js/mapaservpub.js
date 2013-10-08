@@ -65,25 +65,29 @@ function addPoint(ponto) {
 
 	google.maps.event.addListener(marker, 'click', (function(marker, i) {
 		return function() {
-			var msgbalao = "<p><strong>" + ponto.categoria.descricao + "</strong></p>";
-			if (ponto.nome) {
-				msgbalao += "<p>" + ponto.nome + "</p>";
-			}
-			if (ponto.atendimento) {
-				msgbalao += "<p>Atendimento: " + ponto.atendimento + "</p>";
-			}
-			if (ponto.contato) {
-				if (ponto.contato.telefones) {
-					msgbalao += "<p>Telefones: " + ponto.contato.telefones.join(', ') + "</p>";
-				}
-				if (ponto.contato.email) {
-					msgbalao += "<p>Email: " + ponto.contato.email; + "</p>";
-				}
-			}
-			infowindow.setContent(msgbalao);
+			infowindow.setContent(formatInfoWindowText(ponto));
 			infowindow.open(map, marker);
 		};
 	})(marker));
+}
+
+function formatInfoWindowText(ponto) {
+	var text = "<p><strong>" + ponto.categoria.descricao + "</strong></p>";
+	if (ponto.nome) {
+		text += "<p>" + ponto.nome + "</p>";
+	}
+	if (ponto.atendimento) {
+		text += "<p>Atendimento: " + ponto.atendimento + "</p>";
+	}
+	if (ponto.contato) {
+		if (ponto.contato.telefones) {
+			text += "<p>Telefones: " + ponto.contato.telefones.join(', ') + "</p>";
+		}
+		if (ponto.contato.email) {
+			text += "<p>Email: " + ponto.contato.email; + "</p>";
+		}
+	}
+	return text;
 }
 
 function trackMarker(marker) {
