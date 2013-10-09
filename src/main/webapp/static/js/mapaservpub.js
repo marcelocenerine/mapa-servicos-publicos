@@ -4,6 +4,7 @@ var markers = [];
 var infowindow = new google.maps.InfoWindow();
 var defaultZoom = 4;
 var placeZoom = 15;
+var searchPlaceMarker;
 var defaultLat = -14.235004;
 var defaultlng = -51.92528;
 	
@@ -22,11 +23,7 @@ function showWhereIam() {
 
 function defineSearchPlace(lat, lng) {
 	var location = new google.maps.LatLng(lat, lng);
-	var marker = new google.maps.Marker({
-		map: map,
-		draggable: false,
-	});
-	marker.setPosition(location);
+	searchPlaceMarker.setPosition(location);
 	map.setCenter(location);
 	map.setZoom(placeZoom);
 }
@@ -137,6 +134,10 @@ $(document).ready(function () {
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	map = new google.maps.Map(document.getElementById('mapa'), options);
+	searchPlaceMarker = new google.maps.Marker({
+		map: map,
+		draggable: false,
+	});
 	geocoder = new google.maps.Geocoder();
 	
 	bindComponentEvents();
