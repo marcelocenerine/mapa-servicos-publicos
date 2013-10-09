@@ -35,8 +35,9 @@ function translateLocationToAddress(lat, lng, element) {
 	var location = new google.maps.LatLng(lat, lng);
 	geocoder.geocode({'latLng' : location}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			if (results[3]) 
+			if (results[3]) {
 				$(element).val(results[3].formatted_address);
+			}
 		}
 	});
 }
@@ -107,7 +108,7 @@ function hideStreetView() {
 }
 
 function bindComponentEvents() {
-	//Sugere enderecos  eexibe no mapa o local clicado
+	//Sugere enderecos e exibe no mapa o local clicado
 	$("#txtEndereco").autocomplete({
 		source: function (request, response) {
 			geocoder.geocode({ 'address': request.term + ', Brasil', 'region': 'BR' }, function (results, status) {
@@ -128,6 +129,19 @@ function bindComponentEvents() {
 	});	
 }
 
+function searchAddress() {
+	 geocoder.geocode({ 'address': $('#txtEndereco').val() + ', Brasil', 'region': 'BR' }, function (results, status) {
+		 if (status == google.maps.GeocoderStatus.OK) {
+				if (results[0]) {
+					latitude = results[0].geometry.location.lat();
+					longitude = results[0].geometry.location.lng();
+					defineSearchPlace(latitude, longitude);
+					loadPoints(latitude, longitude);
+				}
+			}
+		});
+ }
+
 $(document).ready(function () {
 	var options = {
 		zoom: defaultZoom,
@@ -141,4 +155,22 @@ $(document).ready(function () {
 	
 	bindComponentEvents();
 	showWhereIam();
+	
+	$("#txtEndereco").click(function() {
+		  $(this).val('');
+		});
+	
+	$('#txtEndereco').keypress(function(e){
+		var tecla = (e.keyCode ? e.keyCode : e.which);
+		 if(tecla == 13 &&  $('#txtEndereco').val()){
+			 searchAddress();
+		 }
+	});
+	
+	$("#btnEndereco").click(function() {
+		if ( $('#txtEndereco').val()) {
+			searchAddress();
+		}
+	});
+	
 });

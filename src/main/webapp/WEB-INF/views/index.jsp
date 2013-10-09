@@ -20,10 +20,8 @@
 		</h1>
 	</div>
 	<div id="formulario">
-		<form method="post" action="index.html">
-			<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe onde (rua, cidade) deseja localizar servico publico" placeholder="Informe onde (rua ou cidade) deseja localizar servico publico" ></input>
-            <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa" ></input>
-		</form>
+		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe onde (rua, cidade) deseja localizar servico publico" placeholder="Informe onde (rua ou cidade) deseja localizar servico publico" ></input>
+        <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa" ></input>
 	</div>
 </div>
 <c:forEach items="${categorias}" var="categoria">
