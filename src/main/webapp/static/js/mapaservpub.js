@@ -57,7 +57,7 @@ function loadPoints(latitude, longitude) {
 	clearMarkers();
 	hideStreetView();
 	var servicos = getCheckBox();
-	$.getJSON('rest/api/servicos/lng/' + longitude + '/lat/' + latitude + '/categoria/' + servicos, function(pontos) {
+	$.getJSON('rest/api/servicos/lng/' + longitude + '/lat/' + latitude + '/categorias/' + servicos, function(pontos) {
 		$.each(pontos, function(index, ponto) {
 			addPoint(ponto);
 		});
@@ -190,6 +190,7 @@ $(document).ready(function () {
 	searchPlaceMarker = new google.maps.Marker({
 		map: map,
 		draggable: false,
+		animation: google.maps.Animation.DROP
 	});
 	geocoder = new google.maps.Geocoder();
 	
