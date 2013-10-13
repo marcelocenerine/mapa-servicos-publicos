@@ -6,6 +6,7 @@ var defaultZoom = 4;
 var placeZoom = 15;
 var defaultLat = -14.235004;
 var defaultlng = -51.92528;
+var servpublicos = ['CORREIOS', 'CARTORIO', 'ENS_BASICO', 'ENS_SUPERIOR', 'RFB', 'ASS_SOCIAL', 'INSS', 'COM_TERAP', 'SINE', 'UBS'];
 	
 	
 function showWhereIam() {
@@ -56,8 +57,7 @@ function loadPoints(latitude, longitude) {
 
 function getCheckBox() {
 	var selecao = '';
-	var servicos = ['CORREIOS', 'CARTORIO', 'ENS_BASICO', 'ENS_SUPERIOR', 'RFB', 'ASS_SOCIAL', 'INSS', 'COM_TERAP', 'SINE', 'UBS'];
-	servicos.forEach(function(value) {
+	servpublicos.forEach(function(value) {
 		if ($("#"+value).is(":checked")) {
 			selecao += $("#"+value).val() + ',';
 		}
@@ -152,20 +152,7 @@ function searchAddress() {
 		});
  }
 
-$(document).ready(function () {
-	var options = {
-		zoom: defaultZoom,
-		center: new google.maps.LatLng(defaultLat, defaultlng),
-		panControl: true,
-		streetViewControl: true,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-	map = new google.maps.Map(document.getElementById('mapa'), options);
-	geocoder = new google.maps.Geocoder();
-	
-	bindComponentEvents();
-	showWhereIam();
-	
+function getEventForm() {
 	$("#txtEndereco").click(function() {
 		  $(this).val('');
 		});
@@ -182,5 +169,30 @@ $(document).ready(function () {
 			searchAddress();
 		}
 	});
+	
+	servpublicos.forEach(function(value) {
+		$("#"+value).click(function() {
+			if ( $('#txtEndereco').val()) {
+				searchAddress();
+			}
+		});
+	});
+	
+}
+
+$(document).ready(function () {
+	var options = {
+		zoom: defaultZoom,
+		center: new google.maps.LatLng(defaultLat, defaultlng),
+		panControl: true,
+		streetViewControl: true,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	map = new google.maps.Map(document.getElementById('mapa'), options);
+	geocoder = new google.maps.Geocoder();
+	
+	bindComponentEvents();
+	showWhereIam();
+	getEventForm();
 	
 });
