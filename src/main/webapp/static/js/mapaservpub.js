@@ -61,7 +61,7 @@ function loadPoints(latitude, longitude) {
 	clearMarkers();
 	hideStreetView();
 	var servicos = getCheckBox();
-	$.getJSON('rest/api/servicos/lng/' + longitude + '/lat/' + latitude + '/categorias/' + servicos, function(pontos) {
+	$.getJSON('rest/api/servicos/lng/' + longitude + '/lat/' + latitude + '/categoria/' + servicos, function(pontos) {
 		$.each(pontos, function(index, ponto) {
 			addPoint(ponto);
 		});
@@ -150,9 +150,7 @@ function bindComponentEvents() {
 			loadPoints(ui.item.latitude, ui.item.longitude);
 		}
 	});	
-}
-
-function getEventForm() {
+	
 	$('#txtEndereco').click(function() {
 		  $(this).val('');
 		});
@@ -197,7 +195,5 @@ $(document).ready(function () {
 	
 	initialize();
 	bindComponentEvents();
-	showWhereIam();
-	getEventForm();
-	
+	showWhereIam();	
 });
