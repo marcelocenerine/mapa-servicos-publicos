@@ -45,14 +45,24 @@ function translateLocationToAddress(lat, lng, element) {
 function loadPoints(latitude, longitude) {
 	clearMarkers();
 	hideStreetView();
-	// APAGAR LINHA ABAIXO QUANDO A CONSULTA POR CATEGORIAS ESTIVER PRONTA
-	var servicos = 'CORREIOS, CARTORIO, ENS_BASICO, ENS_SUPERIOR, RFB, ASS_SOCIAL, INSS, COM_TERAP, SINE, UBS';
+	var servicos = getCheckBox();
 	
 	$.getJSON('rest/api/servicos/lng/' + longitude + '/lat/' + latitude + '/categorias/' + servicos, function(pontos) {
 		$.each(pontos, function(index, ponto) {
 			addPoint(ponto);
 		});
 	});	
+}
+
+function getCheckBox() {
+	var selecao = '';
+	var servicos = ['CORREIOS', 'CARTORIO', 'ENS_BASICO', 'ENS_SUPERIOR', 'RFB', 'ASS_SOCIAL', 'INSS', 'COM_TERAP', 'SINE', 'UBS'];
+	servicos.forEach(function(value) {
+		if ($("#"+value).is(":checked")) {
+			selecao += $("#"+value).val() + ',';
+		}
+	});
+	return selecao;
 }
 
 function addPoint(ponto) {
