@@ -28,7 +28,7 @@
 	<div class="icone">
 		<img src="img/${categoria}.png" alt="${categoria.descricao}" />
 		<div class="legenda">
-			<input type="checkbox" id="${categoria}" value="${categoria}" checked />
+			<input type="checkbox" id="${categoria}" value="${categoria}" />
 			${categoria.descricao}
 		</div>
 	</div>

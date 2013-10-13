@@ -14,7 +14,7 @@ function showWhereIam() {
 		navigator.geolocation.getCurrentPosition(
 			function (position) {
 				defineSearchPlace(position.coords.latitude, position.coords.longitude);
-				translateLocationToAddress(position.coords.latitude, position.coords.longitude, $("#txtEndereco"));
+				translateLocationToAddress(position.coords.latitude, position.coords.longitude, $('#txtEndereco'));
 				loadPoints(position.coords.latitude, position.coords.longitude);
 			}
 		);
@@ -25,7 +25,8 @@ function defineSearchPlace(lat, lng) {
 	var location = new google.maps.LatLng(lat, lng);
 	var marker = new google.maps.Marker({
 		map: map,
-		draggable: false,
+	    draggable:true,
+	    animation: google.maps.Animation.DROP
 	});
 	marker.setPosition(location);
 	map.setCenter(location);
@@ -43,11 +44,23 @@ function translateLocationToAddress(lat, lng, element) {
 	});
 }
 
+function searchAddress() {
+	 geocoder.geocode({ 'address': $('#txtEndereco').val() + ', Brasil', 'region': 'BR' }, function (results, status) {
+		 if (status == google.maps.GeocoderStatus.OK) {
+				if (results[0]) {
+					latitude = results[0].geometry.location.lat();
+					longitude = results[0].geometry.location.lng();
+					defineSearchPlace(latitude, longitude);
+					loadPoints(latitude, longitude);
+				}
+			}
+		});
+ }
+
 function loadPoints(latitude, longitude) {
 	clearMarkers();
 	hideStreetView();
 	var servicos = getCheckBox();
-	
 	$.getJSON('rest/api/servicos/lng/' + longitude + '/lat/' + latitude + '/categorias/' + servicos, function(pontos) {
 		$.each(pontos, function(index, ponto) {
 			addPoint(ponto);
@@ -58,8 +71,8 @@ function loadPoints(latitude, longitude) {
 function getCheckBox() {
 	var selecao = '';
 	servpublicos.forEach(function(value) {
-		if ($("#"+value).is(":checked")) {
-			selecao += $("#"+value).val() + ',';
+		if ($('#'+value).is(':checked')) {
+			selecao += $('#'+value).val() + ',';
 		}
 	});
 	return selecao;
@@ -83,19 +96,19 @@ function addPoint(ponto) {
 }
 
 function formatInfoWindowText(ponto) {
-	var text = "<p><strong>" + ponto.categoria.descricao + "</strong></p>";
+	var text = '<p><strong>' + ponto.categoria.descricao + '</strong></p>';
 	if (ponto.nome) {
-		text += "<p>" + ponto.nome + "</p>";
+		text += '<p>' + ponto.nome + '</p>';
 	}
 	if (ponto.atendimento) {
-		text += "<p>Atendimento: " + ponto.atendimento + "</p>";
+		text += '<p>Atendimento: ' + ponto.atendimento + '</p>';
 	}
 	if (ponto.contato) {
 		if (ponto.contato.telefones) {
-			text += "<p>Telefones: " + ponto.contato.telefones.join(', ') + "</p>";
+			text += '<p>Telefones: ' + ponto.contato.telefones.join(', ') + '</p>';
 		}
 		if (ponto.contato.email) {
-			text += "<p>Email: " + ponto.contato.email; + "</p>";
+			text += '<p>Email: ' + ponto.contato.email; + '</p>';
 		}
 	}
 	return text;
@@ -110,6 +123,7 @@ function clearMarkers() {
 		e.setMap(null);
 		}
 	);
+	
 	markers = [];
 }
 
@@ -118,8 +132,7 @@ function hideStreetView() {
 }
 
 function bindComponentEvents() {
-	//Sugere enderecos e exibe no mapa o local clicado
-	$("#txtEndereco").autocomplete({
+	$('#txtEndereco').autocomplete({
 		source: function (request, response) {
 			geocoder.geocode({ 'address': request.term + ', Brasil', 'region': 'BR' }, function (results, status) {
 				response($.map(results, function (item) {
@@ -139,21 +152,8 @@ function bindComponentEvents() {
 	});	
 }
 
-function searchAddress() {
-	 geocoder.geocode({ 'address': $('#txtEndereco').val() + ', Brasil', 'region': 'BR' }, function (results, status) {
-		 if (status == google.maps.GeocoderStatus.OK) {
-				if (results[0]) {
-					latitude = results[0].geometry.location.lat();
-					longitude = results[0].geometry.location.lng();
-					defineSearchPlace(latitude, longitude);
-					loadPoints(latitude, longitude);
-				}
-			}
-		});
- }
-
 function getEventForm() {
-	$("#txtEndereco").click(function() {
+	$('#txtEndereco').click(function() {
 		  $(this).val('');
 		});
 	
@@ -164,20 +164,24 @@ function getEventForm() {
 		 }
 	});
 	
-	$("#btnEndereco").click(function() {
+	$('#btnEndereco').click(function() {
 		if ( $('#txtEndereco').val()) {
 			searchAddress();
 		}
 	});
 	
 	servpublicos.forEach(function(value) {
-		$("#"+value).click(function() {
+		$('#'+value).click(function() {
 			if ( $('#txtEndereco').val()) {
 				searchAddress();
 			}
 		});
 	});
-	
+}
+
+function initialize() {
+	$('#txtEndereco').val('');
+	$("input:checkbox").attr("checked",true);
 }
 
 $(document).ready(function () {
@@ -191,6 +195,7 @@ $(document).ready(function () {
 	map = new google.maps.Map(document.getElementById('mapa'), options);
 	geocoder = new google.maps.Geocoder();
 	
+	initialize();
 	bindComponentEvents();
 	showWhereIam();
 	getEventForm();
