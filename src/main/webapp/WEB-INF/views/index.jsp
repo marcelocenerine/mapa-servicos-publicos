@@ -4,47 +4,39 @@
 <!DOCTYPE html> 
 <html lang="en"> 
 <head> 
-	<title>Mapa de Serviços Públicos</title>
+	<title>Mapa de Serviços Públicos Brasileiros</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9"> 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<link rel="stylesheet" href="./css/mapaservpub.css" type="text/css" media="all">
-	<link rel="stylesheet" href="./css/720_grid.css" type="text/css">
-	<link rel="stylesheet" href="./css/720_grid.css" type="text/css" media="screen and (min-width: 720px)">
-	<link rel="stylesheet" href="./css/986_grid.css" type="text/css" media="screen and (min-width: 986px)">
-	<link rel="stylesheet" href="./css/1236_grid.css" media="screen and (min-width: 1236px)" >
 </head>
 <body>
-<div id="banner" class="banner-wrap">
+<div id="cabecalho">
 	<div>
 		<h1 id="logo">
 			<a href="home">
 				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Servi&ccedil;os P&uacute;blicos" width="414" height="58" />
-			</a>
+			</a><br />
+			Informe endereço e selecione qual serviço público você precisa!
 		</h1>
 	</div>
 	<div id="formulario">
-		<form method="post" action="index.html">
-			<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe onde (rua, cidade) deseja localizar servico publico" placeholder="Informe onde (rua ou cidade) deseja localizar servico publico" ></input>
-            <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa" ></input>
-		</form>
+		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe onde (rua, cidade) deseja localizar servico publico" placeholder="Informe onde (rua ou cidade) deseja localizar servico publico" ></input>
+        <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa" ></input>
 	</div>
 </div>
-
-<div class="div-categorias">
-	<c:forEach items="${categorias}" var="categoria">
-		<span class="categoria">
-			<img src="img/${categoria}.png" alt="${categoria.descricao}" />
-			<div class="legendas">
-				${categoria.descricao}
-			</div>
-		</span>
-	</c:forEach>
-</div>
-
+<c:forEach items="${categorias}" var="categoria">
+	<div class="icone">
+		<img src="img/${categoria}.png" alt="${categoria.descricao}" />
+		<div class="legenda">
+			<input type="checkbox" id="${categoria}" value="${categoria}" />
+			${categoria.descricao}
+		</div>
+	</div>
+</c:forEach>
 
 <div id="mapa"></div>
-<div class="row footer">
+
+<div class="rodape">
 	Quem Somos | Como Funciona | Contato
 </div>
 

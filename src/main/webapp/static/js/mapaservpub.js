@@ -7,6 +7,7 @@ var placeZoom = 15;
 var searchPlaceMarker;
 var defaultLat = -14.235004;
 var defaultlng = -51.92528;
+var servpublicos = ['CORREIOS', 'CARTORIO', 'ENS_BASICO', 'ENS_SUPERIOR', 'RFB', 'ASS_SOCIAL', 'INSS', 'COM_TERAP', 'SINE', 'UBS'];
 	
 	
 function showWhereIam() {
@@ -14,7 +15,7 @@ function showWhereIam() {
 		navigator.geolocation.getCurrentPosition(
 			function (position) {
 				defineSearchPlace(position.coords.latitude, position.coords.longitude);
-				translateLocationToAddress(position.coords.latitude, position.coords.longitude, $("#txtEndereco"));
+				translateLocationToAddress(position.coords.latitude, position.coords.longitude, $('#txtEndereco'));
 				loadPoints(position.coords.latitude, position.coords.longitude);
 			}
 		);
@@ -32,23 +33,45 @@ function translateLocationToAddress(lat, lng, element) {
 	var location = new google.maps.LatLng(lat, lng);
 	geocoder.geocode({'latLng' : location}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			if (results[3]) 
+			if (results[3]) {
 				$(element).val(results[3].formatted_address);
+			}
 		}
 	});
 }
 
+function searchAddress() {
+	 geocoder.geocode({ 'address': $('#txtEndereco').val() + ', Brasil', 'region': 'BR' }, function (results, status) {
+		 if (status == google.maps.GeocoderStatus.OK) {
+				if (results[0]) {
+					latitude = results[0].geometry.location.lat();
+					longitude = results[0].geometry.location.lng();
+					defineSearchPlace(latitude, longitude);
+					loadPoints(latitude, longitude);
+				}
+			}
+		});
+ }
+
 function loadPoints(latitude, longitude) {
 	clearMarkers();
 	hideStreetView();
-	// APAGAR LINHA ABAIXO QUANDO A CONSULTA POR CATEGORIAS ESTIVER PRONTA
-	var servicos = 'CORREIOS, CARTORIO, ENS_BASICO, ENS_SUPERIOR, RFB, ASS_SOCIAL, INSS, COM_TERAP, SINE, UBS';
-	
+	var servicos = getCheckBox();
 	$.getJSON('rest/api/servicos/lng/' + longitude + '/lat/' + latitude + '/categorias/' + servicos, function(pontos) {
 		$.each(pontos, function(index, ponto) {
 			addPoint(ponto);
 		});
 	});	
+}
+
+function getCheckBox() {
+	var selecao = '';
+	servpublicos.forEach(function(value) {
+		if ($('#'+value).is(':checked')) {
+			selecao += $('#'+value).val() + ',';
+		}
+	});
+	return selecao;
 }
 
 function addPoint(ponto) {
@@ -69,19 +92,19 @@ function addPoint(ponto) {
 }
 
 function formatInfoWindowText(ponto) {
-	var text = "<p><strong>" + ponto.categoria.descricao + "</strong></p>";
+	var text = '<p><strong>' + ponto.categoria.descricao + '</strong></p>';
 	if (ponto.nome) {
-		text += "<p>" + ponto.nome + "</p>";
+		text += '<p>' + ponto.nome + '</p>';
 	}
 	if (ponto.atendimento) {
-		text += "<p>Atendimento: " + ponto.atendimento + "</p>";
+		text += '<p>Atendimento: ' + ponto.atendimento + '</p>';
 	}
 	if (ponto.contato) {
 		if (ponto.contato.telefones) {
-			text += "<p>Telefones: " + ponto.contato.telefones.join(', ') + "</p>";
+			text += '<p>Telefones: ' + ponto.contato.telefones.join(', ') + '</p>';
 		}
 		if (ponto.contato.email) {
-			text += "<p>Email: " + ponto.contato.email; + "</p>";
+			text += '<p>Email: ' + ponto.contato.email; + '</p>';
 		}
 	}
 	return text;
@@ -96,6 +119,7 @@ function clearMarkers() {
 		e.setMap(null);
 		}
 	);
+	
 	markers = [];
 }
 
@@ -104,8 +128,7 @@ function hideStreetView() {
 }
 
 function bindComponentEvents() {
-	//Sugere enderecos  eexibe no mapa o local clicado
-	$("#txtEndereco").autocomplete({
+	$('#txtEndereco').autocomplete({
 		source: function (request, response) {
 			geocoder.geocode({ 'address': request.term + ', Brasil', 'region': 'BR' }, function (results, status) {
 				response($.map(results, function (item) {
@@ -125,6 +148,38 @@ function bindComponentEvents() {
 	});	
 }
 
+function getEventForm() {
+	$('#txtEndereco').click(function() {
+		  $(this).val('');
+		});
+	
+	$('#txtEndereco').keypress(function(e){
+		var tecla = (e.keyCode ? e.keyCode : e.which);
+		 if(tecla == 13 &&  $('#txtEndereco').val()){
+			 searchAddress();
+		 }
+	});
+	
+	$('#btnEndereco').click(function() {
+		if ( $('#txtEndereco').val()) {
+			searchAddress();
+		}
+	});
+	
+	servpublicos.forEach(function(value) {
+		$('#'+value).click(function() {
+			if ( $('#txtEndereco').val()) {
+				searchAddress();
+			}
+		});
+	});
+}
+
+function initialize() {
+	$('#txtEndereco').val('');
+	$("input:checkbox").attr("checked",true);
+}
+
 $(document).ready(function () {
 	var options = {
 		zoom: defaultZoom,
@@ -140,6 +195,9 @@ $(document).ready(function () {
 	});
 	geocoder = new google.maps.Geocoder();
 	
+	initialize();
 	bindComponentEvents();
 	showWhereIam();
+	getEventForm();
+	
 });

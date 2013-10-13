@@ -1,16 +1,5 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html, body {
+	height: 100%;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -18,103 +7,55 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-
-html { 
-	height: 100%; 
-}
 body { 
-	height: 100%;
-}
-body {
 	color: #444;
-	font-family: Calibri, Arial, Verdana;
+	font-family: Arial, Verdana;
 	line-height: 1.5em;
 }
-ol, ul {
-	list-style: square;
-	margin: 0 0 0.5em;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-code {
-	background-color: #f4f4f4;
-	font-family: Menlo, 'Panic Sans', monospace;
-	font-size: 0.875em;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-strong {
-	font-weight: bold;
-}
-p {
-	margin: 0 0 0.5em;
-	max-width: 634px;
-}
-h1, h2, h3, h4, h5, h6 {
-	font-family: Calibri, Arial, Verdana;
-	font-weight: normal;
-	line-height: 1.2em;
-	padding: 0.5em 0 0.25em;
-}
-
 h1 {
-	font-size: 3em;
+	font-size: 11px;
 }
-
-h2 {
-	font-size: 1em;
-}
-
-h3 {
-	font-size: 1.5em;
-}
-
-h4 {
-	font-size: 1.25em;
-}
-
-h5, h6 {
-	font-size: 1em;
-}
-
 a, a:link, a:visited {
 	color: #11bad3;
 	text-decoration: none;
 }
-
 a:hover, a:active {
 	background: #E6E6FA;
 	color: #FFF;
 }
-
-/* img { */
-/* 	max-width: 100%; */
-/* 	border: 0px; */
-/* } */
-
-hr {
-	border: none;
-	height: 10px;
-}
-
 form  {
 	display:inline;
 	float:left;
 }
-
+.legenda {
+	text-align: center;
+	font-size: 10px;
+	color: #333;
+	margin-top: -10px;
+	font-weight: bold;
+}
+.icone {
+	 text-align: center;
+	 float: left;
+	 margin-left: 20px;
+}
+.rodape {
+	color: #444;
+	text-align: center;
+	max-width: none;
+}
+#cabecalho {
+	text-align: left;
+	background: #E6E6FA;
+	border-bottom: 1px solid #ccc;
+	padding: 0px 10px 40px;
+	margin-bottom: 10px;
+}
+#logo {
+	padding-bottom: 0;
+	padding-right: 60px;
+	float:left;
+}
 #txtEndereco {	
 	background: #FFF;
 	color: #666;
@@ -125,7 +66,6 @@ form  {
     border-radius: 10px 10px 10px 10px;
 	width: 620px; 
 }
-
 #btnEndereco {
 	background: #2679A5; 
 	border-radius: 10px 10px 10px 10px;
@@ -135,78 +75,17 @@ form  {
     font: 14px Calibri, Arial;
     width: 130px;
 }
-
 #formulario {
 	padding-top: 50px;
 }
-
-#logo {
-	padding-bottom: 0;
-	padding-right: 60px;
-	float:left;
-}
-
 #mapa {
 	width: 100%;
-	height: 70%;
+	height: 65%;
 	border-top: 2px solid #ccc;	
-	border-bottom: 2px solid #ccc;	
+	border-bottom: 2px solid #ccc;
+	margin-top: 60px;
 }
 
-.logo {
-	color: #11bad3;
-	font-family: Calibri, Arial, Verdana;
-	font-weight: normal;
-	font-size: 1.2em;
-}
-
-.banner-wrap {
-	text-align: left;
-	background: #E6E6FA;
-	border-bottom: 1px solid #ccc;
-	padding: 0 10px 50px;
-	margin-bottom: 1em;
-}
-
-.row {
-	margin-bottom: 1em;
-}
-
-a.bttn {
-	border-right: 1px solid #0087a0;
-	border-bottom: 1px solid #0087a0;
-	background: #11bad3;
-	color: #fff;
-	display: inline-block;
-	font-family: Calibri, Arial, Verdana;
-	font-size: 1.2em;
-	font-weight: bold;
-	margin: 0.5em 0;
-	padding: 0.5em 0.75em;
-}
-
-.div-categorias {
-	text-align: center;
-}
-
-.categoria {
-	float: left;
-	margin-left: 5px;
-	margin-right: 5px;
-	width: 100px;
-	line-height:1;
-}
-
-.legendas {
-	font-size: 0.7em;
-	color: #3a6fc1;
-}
-
-.footer {
-	color: #444;
-	text-align: center;
-	max-width: none;
-}
 
 /* =============== Estilos do autocomplete =============== */
 .ui-autocomplete { 
@@ -218,19 +97,17 @@ a.bttn {
 	width: 670px;
 	position: fixed;
 }
-
 .ui-autocomplete .ui-menu-item { 
 	list-style: none outside none;
 	padding: 10px 0px 0px 0px;
 }
-
-.ui-autocomplete .ui-menu-item:hover { background: #E6E6FA; }
-
+.ui-autocomplete .ui-menu-item:hover {
+	background: #E6E6FA; 
+}
 .ui-autocomplete .ui-corner-all { 
 	color: #000;
 	display: block;
 }
-
 .ui-helper-hidden-accessible {
 	display: none;
 }
