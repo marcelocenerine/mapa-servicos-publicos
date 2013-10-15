@@ -24,6 +24,7 @@
         <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa" ></input>
 	</div>
 </div>
+<input type="hidden" id= "listaCategorias" value="${categorias}" />
 <c:forEach items="${categorias}" var="categoria">
 	<div class="icone">
 		<img src="img/${categoria}.png" alt="${categoria.descricao}" />
@@ -43,6 +44,7 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://malsup.github.io/jquery.blockUI.js"></script>
 <script type="text/javascript" src="js/mapaservpub.js"></script>
 </body> 
 </html>

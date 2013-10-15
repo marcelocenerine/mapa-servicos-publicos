@@ -54,14 +54,33 @@ function searchAddress() {
  }
 
 function loadPoints() {
-	clearMarkers();
 	hideStreetView();
 	var servicos = getCheckBox();
+	blockMap();
 	$.getJSON('rest/api/servicos/lng/' + currentLocation.lng() + '/lat/' + currentLocation.lat() + '/categorias/' + servicos, function(pontos) {
+		clearMarkers();
 		$.each(pontos, function(index, ponto) {
 			addPoint(ponto);
 		});
+		unblockMap();
 	});	
+}
+
+function blockMap() {
+	$('#mapa').block({ css: { 
+		border: 'none', 
+		padding: '15px', 
+		backgroundColor: '#000', 
+		'-webkit-border-radius': '10px', 
+		'-moz-border-radius': '10px', 
+		opacity: .5, 
+		color: '#fff' 
+	} , 
+	message : 'Aguarde...'});
+}
+
+function unblockMap() {
+	$('#mapa').unblock();
 }
 
 function getCheckBox() {
