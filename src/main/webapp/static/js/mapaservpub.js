@@ -56,14 +56,18 @@ function searchAddress() {
 function loadPoints() {
 	hideStreetView();
 	var servicos = getCheckBox();
-	blockMap();
-	$.getJSON('rest/api/servicos/lng/' + currentLocation.lng() + '/lat/' + currentLocation.lat() + '/categorias/' + servicos, function(pontos) {
+	if (servicos) {
+		blockMap();
+		$.getJSON('rest/api/servicos/lng/' + currentLocation.lng() + '/lat/' + currentLocation.lat() + '/categorias/' + servicos, function(pontos) {
+			clearMarkers();
+			$.each(pontos, function(index, ponto) {
+				addPoint(ponto);
+			});
+			unblockMap();
+		});	
+	} else {
 		clearMarkers();
-		$.each(pontos, function(index, ponto) {
-			addPoint(ponto);
-		});
-		unblockMap();
-	});	
+	}
 }
 
 function blockMap() {
