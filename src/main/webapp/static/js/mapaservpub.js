@@ -4,28 +4,28 @@ var markers = [];
 var infowindow = new google.maps.InfoWindow();
 var defaultZoom = 4;
 var placeZoom = 15;
-var searchPlaceMarker;
 var defaultLat = -14.235004;
 var defaultlng = -51.92528;
-var servpublicos = ['CORREIOS', 'CARTORIO', 'ENS_BASICO', 'ENS_SUPERIOR', 'RFB', 'ASS_SOCIAL', 'INSS', 'COM_TERAP', 'SINE', 'UBS'];
+var currentLocation;
+var currentLocationMarker;
 	
 	
 function showWhereIam() {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(
 			function (position) {
-				defineSearchPlace(position.coords.latitude, position.coords.longitude);
+				defineCurrentLocation(position.coords.latitude, position.coords.longitude);
 				translateLocationToAddress(position.coords.latitude, position.coords.longitude, $('#txtEndereco'));
-				loadPoints(position.coords.latitude, position.coords.longitude);
+				loadPoints();
 			}
 		);
 	}
 }
 
-function defineSearchPlace(lat, lng) {
-	var location = new google.maps.LatLng(lat, lng);
-	searchPlaceMarker.setPosition(location);
-	map.setCenter(location);
+function defineCurrentLocation(lat, lng) {
+	currentLocation = new google.maps.LatLng(lat, lng);
+	currentLocationMarker.setPosition(currentLocation);
+	map.setCenter(currentLocation);
 	map.setZoom(placeZoom);
 }
 
@@ -46,18 +46,18 @@ function searchAddress() {
 				if (results[0]) {
 					latitude = results[0].geometry.location.lat();
 					longitude = results[0].geometry.location.lng();
-					defineSearchPlace(latitude, longitude);
-					loadPoints(latitude, longitude);
+					defineCurrentLocation(latitude, longitude);
+					loadPoints();
 				}
 			}
 		});
  }
 
-function loadPoints(latitude, longitude) {
+function loadPoints() {
 	clearMarkers();
 	hideStreetView();
 	var servicos = getCheckBox();
-	$.getJSON('rest/api/servicos/lng/' + longitude + '/lat/' + latitude + '/categorias/' + servicos, function(pontos) {
+	$.getJSON('rest/api/servicos/lng/' + currentLocation.lng() + '/lat/' + currentLocation.lat() + '/categorias/' + servicos, function(pontos) {
 		$.each(pontos, function(index, ponto) {
 			addPoint(ponto);
 		});
@@ -66,10 +66,8 @@ function loadPoints(latitude, longitude) {
 
 function getCheckBox() {
 	var selecao = '';
-	servpublicos.forEach(function(value) {
-		if ($('#'+value).is(':checked')) {
-			selecao += $('#'+value).val() + ',';
-		}
+	$("input:checked[type=checkbox]").each(function() {
+		selecao += $(this).val() + ',';
 	});
 	return selecao;
 }
@@ -117,9 +115,7 @@ function trackMarker(marker) {
 function clearMarkers() {
 	$(markers).each(function(i, e) { 
 		e.setMap(null);
-		}
-	);
-	
+	});
 	markers = [];
 }
 
@@ -142,14 +138,14 @@ function bindComponentEvents() {
 			});
 		},
 		select: function (event, ui) {
-			defineSearchPlace(ui.item.latitude, ui.item.longitude);
-			loadPoints(ui.item.latitude, ui.item.longitude);
+			defineCurrentLocation(ui.item.latitude, ui.item.longitude);
+			loadPoints();
 		}
 	});	
 	
 	$('#txtEndereco').click(function() {
 		  $(this).val('');
-		});
+	});
 	
 	$('#txtEndereco').keypress(function(e){
 		var tecla = (e.keyCode ? e.keyCode : e.which);
@@ -164,12 +160,8 @@ function bindComponentEvents() {
 		}
 	});
 	
-	servpublicos.forEach(function(value) {
-		$('#'+value).click(function() {
-			if ( $('#txtEndereco').val()) {
-				searchAddress();
-			}
-		});
+	$("input:checkbox").click(function() {
+		loadPoints();
 	});
 }
 
@@ -179,15 +171,16 @@ function initialize() {
 }
 
 $(document).ready(function () {
+	currentLocation = new google.maps.LatLng(defaultLat, defaultlng);
 	var options = {
 		zoom: defaultZoom,
-		center: new google.maps.LatLng(defaultLat, defaultlng),
+		center: currentLocation,
 		panControl: true,
 		streetViewControl: true,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	map = new google.maps.Map(document.getElementById('mapa'), options);
-	searchPlaceMarker = new google.maps.Marker({
+	currentLocationMarker = new google.maps.Marker({
 		map: map,
 		draggable: false,
 		animation: google.maps.Animation.DROP
