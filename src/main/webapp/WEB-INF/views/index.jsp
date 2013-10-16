@@ -46,5 +46,6 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://malsup.github.io/jquery.blockUI.js"></script>
 <script type="text/javascript" src="js/mapaservpub.js"></script>
+<script type="text/javascript" src="js/googleanalytics.js"></script>
 </body> 
 </html>
