@@ -15,9 +15,9 @@ public class IndexController {
 	public String root() {
 		return "redirect:/home";
 	}
-	
+
 	@RequestMapping(value="/home", method=GET)
 	public ModelAndView home() {
-		return new ModelAndView("index", "categorias", Categoria.values());
+		return new ModelAndView("indexB", "categorias", Categoria.values());
 	}
 }

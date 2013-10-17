@@ -7,7 +7,7 @@
 	<title>Mapa de Serviços Públicos Brasileiros</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9"> 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-	<link rel="stylesheet" href="./css/mapaservpub.css" type="text/css" media="all">
+	<link rel="stylesheet" href="./css/mapaservpubB.css" type="text/css" media="all">
 </head>
 <body>
 <div id="cabecalho">
