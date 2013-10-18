@@ -183,14 +183,19 @@ function bindComponentEvents() {
 		}
 	});
 	
-	$("input:checkbox").click(function() {
-		loadPoints();
+	$('#selecionaTudo').click(function() {
+		$('input[type=checkbox]').trigger('click');
+		if ($('input[type=checkbox]').is(':checked')) {
+			$('#selecionaTudo').html('Desmarcar todos serviços');
+		} else {
+			$('#selecionaTudo').html('Marcar todos serviços');
+		} 
 	});
 }
 
 function initialize() {
 	$('#txtEndereco').val('');
-	$("input:checkbox").attr("checked",true);
+	//$("input:checkbox").attr("checked",true);
 }
 
 $(document).ready(function () {

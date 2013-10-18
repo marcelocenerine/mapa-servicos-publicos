@@ -13,15 +13,18 @@
 <div id="cabecalho">
 	<div>
 		<h1 id="logo">
-			<a href="home">
-				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Servi&ccedil;os P&uacute;blicos" width="414" height="58" />
+			<a href="home" title="Mapa de Serviços Públicos">
+				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Serviços Públicos" width="414" height="58"
+				onclick="_gaq.push(['_trackEvent', 'Home A', 'Logo', 'Logotipo']);" />
 			</a><br />
 			Informe endereço e selecione qual serviço público você precisa!
 		</h1>
 	</div>
 	<div id="formulario">
-		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe onde (rua, cidade) deseja localizar servico publico" placeholder="Informe onde (rua ou cidade) deseja localizar servico publico" ></input>
-        <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa" ></input>
+		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe onde (rua, cidade) deseja localizar serviço público" placeholder="Informe onde (rua ou cidade) deseja localizar servico publico"
+		onclick="_gaq.push(['_trackEvent', 'Home A', 'Formulario', 'Caixa Texto Endereco']);" ></input>
+        <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa"
+        onclick="_gaq.push(['_trackEvent', 'Home A', 'Formulario', 'Botao']);" ></input>
 	</div>
 </div>
 <input type="hidden" id= "listaCategorias" value="${categorias}" />
@@ -29,7 +32,8 @@
 	<div class="icone">
 		<img src="img/${categoria}.png" alt="${categoria.descricao}" />
 		<div class="legenda">
-			<input type="checkbox" id="${categoria}" value="${categoria}" />
+			<input type="checkbox" id="${categoria}" value="${categoria}" checked
+			onclick="_gaq.push(['_trackEvent', 'Home A', 'Checkbox', '${categoria}']);" />
 			${categoria.descricao}
 		</div>
 	</div>

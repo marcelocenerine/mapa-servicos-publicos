@@ -13,7 +13,7 @@ body {
 	line-height: 1.5em;
 }
 h1 {
-	font-size: 11px;
+	font-size: 12px;
 }
 a, a:link, a:visited {
 	color: #11bad3;
@@ -29,20 +29,11 @@ form  {
 }
 .legenda {
 	text-align: center;
-	font-size: 10px;
+	font-size: 12px;
 	color: #333;
-	margin-top: -10px;
-	font-weight: bold;
 }
 .icone {
-	 text-align: center;
-	 float: left;
-	 margin-left: 20px;
-}
-.rodape {
-	color: #444;
-	text-align: center;
-	max-width: none;
+	 margin-top: -2px;
 }
 #cabecalho {
 	text-align: left;
@@ -61,7 +52,7 @@ form  {
 	color: #666;
 	display: block;
 	float: left;
-	font: 14px Calibri, Arial; 
+	font: 14px Arial, Verdana; 
 	padding: 4px 4px 4px 4px;
     border-radius: 10px 10px 10px 10px;
 	width: 620px; 
@@ -72,27 +63,48 @@ form  {
     color: #FFF;
     cursor: pointer;
     height: 30px;
-    font: 14px Calibri, Arial;
+    font: 14px Arial, Verdana;
     width: 130px;
 }
 #formulario {
 	padding-top: 50px;
 }
-#mapa {
-	width: 80%;
-	height: 65%;
-	border-top: 2px solid #ccc;	
-	border-bottom: 2px solid #ccc;
-	margin-top: 60px;
+#servicos {
+	margin-top: 10px;
+	float:left;
 }
-
+#selecionaTudo {
+	font: 11px Arial, Verdana;
+	margin-top: 10px;
+	text-align: center;
+	color:  #2679A5;
+	font-weight: bold;
+	text-decoration: underline;;
+	cursor: pointer;
+}
+#mapa {
+	width: 79%;
+	height: 75%;
+	border: 2px solid #ccc;
+	margin-left: 20%;
+}
+#rodape {
+	font: 12px Arial, Verdana;
+	text-align: center;
+	color:  #F11;
+	font-weight: bold;
+	text-decoration: underline;
+	margin-top: 5px;
+	margin-left: 20%;
+	cursor: pointer;
+}
 
 /* =============== Estilos do autocomplete =============== */
 .ui-autocomplete { 
 	background: #FFF; 
 	border-top: 1px solid #CCC;
 	cursor: pointer; 
-	font: 14px Calibri, Arial;
+	font: 14px Arial, Verdana;
 	margin-left: 50px;
 	width: 670px;
 	position: fixed;

@@ -13,32 +13,38 @@
 <div id="cabecalho">
 	<div>
 		<h1 id="logo">
-			<a href="home">
-				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Servi&ccedil;os P&uacute;blicos" width="414" height="58" />
-			</a><br />
-			Informe endereço e selecione qual serviço público você precisa!
+			<a href="home" title="Mapa de Serviços Públicos">
+				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Serviços Públicos" width="414" height="58"
+				onclick="_gaq.push(['_trackEvent', 'Home B', 'Logo', 'Logotipo']);" />
+			</a><br />Precisa encontrar algum serviço público?<br />
+			Informe seu local e selecione o serviço que você precisa!
 		</h1>
 	</div>
 	<div id="formulario">
-		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe onde (rua, cidade) deseja localizar servico publico" placeholder="Informe onde (rua ou cidade) deseja localizar servico publico" ></input>
-        <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa" ></input>
+		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe onde (rua, cidade) deseja localizar serviço público" placeholder="Informe onde (rua ou cidade) deseja localizar servico publico"
+		onclick="_gaq.push(['_trackEvent', 'Home B', 'Formulario', 'Caixa Texto Endereco']);" ></input>
+        <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa"
+        onclick="_gaq.push(['_trackEvent', 'Home B', 'Formulario', 'Botao']);" ></input>
 	</div>
 </div>
-<input type="hidden" id= "listaCategorias" value="${categorias}" />
-<c:forEach items="${categorias}" var="categoria">
-	<div class="icone">
-		<img src="img/${categoria}.png" alt="${categoria.descricao}" />
-		<div class="legenda">
-			<input type="checkbox" id="${categoria}" value="${categoria}" />
-			${categoria.descricao}
+<div id="servicos">
+	<input type="hidden" id="listaCategorias" value="${categorias}" />
+	<c:forEach items="${categorias}" var="categoria">
+		<div class="icone">
+			<img src="img/${categoria}.png" alt="${categoria.descricao}" />
+			<span class="legenda">
+				<input type="checkbox" id="${categoria}" value="${categoria}" 
+				onclick="_gaq.push(['_trackEvent', 'Home B', 'Checkbox', '${categoria}']);" />
+				${categoria.descricao}
+			</span>
 		</div>
-	</div>
-</c:forEach>
-
+	</c:forEach>
+	<div id="selecionaTudo">Marcar todos serviços</div>
+</div>
 <div id="mapa"></div>
 
-<div class="rodape">
-	Quem Somos | Como Funciona | Contato
+<div id="rodape">
+	Achou este site útil? Por favor clique e opine o que achou!
 </div>
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true"></script>
