@@ -42,7 +42,6 @@
 	<div id="selecionaTudo">Marcar todos serviços</div>
 </div>
 <div id="mapa"></div>
-
 <div id="rodape">
 	Achou este site útil? Por favor clique e opine o que achou!
 </div>

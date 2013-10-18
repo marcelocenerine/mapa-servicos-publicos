@@ -39,11 +39,6 @@ form  {
 	 float: left;
 	 margin-left: 20px;
 }
-.rodape {
-	color: #444;
-	text-align: center;
-	max-width: none;
-}
 #cabecalho {
 	text-align: left;
 	background: #E6E6FA;
@@ -61,7 +56,7 @@ form  {
 	color: #666;
 	display: block;
 	float: left;
-	font: 14px Calibri, Arial; 
+	font: 14px Arial, Verdana; 
 	padding: 4px 4px 4px 4px;
     border-radius: 10px 10px 10px 10px;
 	width: 620px; 
@@ -72,27 +67,47 @@ form  {
     color: #FFF;
     cursor: pointer;
     height: 30px;
-    font: 14px Calibri, Arial;
+    font: 14px Arial, Verdana;
     width: 130px;
 }
 #formulario {
 	padding-top: 50px;
 }
+#servicos {
+	margin-top: 10px;
+}
+#selecionaTudo {
+	font: 11px Arial, Verdana;
+	margin-top: 10px;
+	text-align: center;
+	color:  #2679A5;
+	font-weight: bold;
+	text-decoration: underline;;
+	cursor: pointer;
+}
 #mapa {
 	width: 100%;
-	height: 65%;
+	height: 60%;
 	border-top: 2px solid #ccc;	
 	border-bottom: 2px solid #ccc;
-	margin-top: 60px;
+	margin-top: 20px;
 }
-
+#rodape {
+	font: 12px Arial, Verdana;
+	text-align: center;
+	color:  #F11;
+	font-weight: bold;
+	text-decoration: underline;
+	margin-top: 5px;
+	cursor: pointer;
+}
 
 /* =============== Estilos do autocomplete =============== */
 .ui-autocomplete { 
 	background: #FFF; 
 	border-top: 1px solid #CCC;
 	cursor: pointer; 
-	font: 14px Calibri, Arial;
+	font: 14px Arial, Verdana;
 	margin-left: 50px;
 	width: 670px;
 	position: fixed;

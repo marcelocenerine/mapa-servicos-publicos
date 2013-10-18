@@ -27,22 +27,23 @@
         onclick="_gaq.push(['_trackEvent', 'Home A', 'Formulario', 'Botao']);" ></input>
 	</div>
 </div>
-<input type="hidden" id= "listaCategorias" value="${categorias}" />
-<c:forEach items="${categorias}" var="categoria">
-	<div class="icone">
-		<img src="img/${categoria}.png" alt="${categoria.descricao}" />
-		<div class="legenda">
-			<input type="checkbox" id="${categoria}" value="${categoria}" checked
-			onclick="_gaq.push(['_trackEvent', 'Home A', 'Checkbox', '${categoria}']);" />
-			${categoria.descricao}
+<div id="servicos">
+	<input type="hidden" id= "listaCategorias" value="${categorias}" />
+	<c:forEach items="${categorias}" var="categoria">
+		<div class="icone">
+			<img src="img/${categoria}.png" alt="${categoria.descricao}" />
+			<div class="legenda">
+				<input type="checkbox" id="${categoria}" value="${categoria}" checked
+				onclick="_gaq.push(['_trackEvent', 'Home A', 'Checkbox', '${categoria}']);" />
+				${categoria.descricao}
+			</div>
 		</div>
-	</div>
-</c:forEach>
-
+	</c:forEach>
+</div>
+<div id="selecionaTudo">Desmarcar todos serviços</div>
 <div id="mapa"></div>
-
-<div class="rodape">
-	Quem Somos | Como Funciona | Contato
+<div id="rodape">
+	Achou este site útil? Por favor clique e opine o que achou!
 </div>
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true"></script>

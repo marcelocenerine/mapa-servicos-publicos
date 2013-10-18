@@ -18,6 +18,11 @@ public class IndexController {
 
 	@RequestMapping(value="/home", method=GET)
 	public ModelAndView home() {
+		return new ModelAndView("index", "categorias", Categoria.values());
+	}
+	
+	@RequestMapping(value="/homeB", method=GET)
+	public ModelAndView homeB() {
 		return new ModelAndView("indexB", "categorias", Categoria.values());
 	}
 }
