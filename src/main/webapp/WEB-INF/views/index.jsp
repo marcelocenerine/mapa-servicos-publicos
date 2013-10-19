@@ -16,8 +16,8 @@
 			<a href="home" title="Mapa de Serviços Públicos">
 				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Serviços Públicos" width="414" height="58"
 				onclick="_gaq.push(['_trackEvent', 'Home A', 'Logo', 'Logotipo']);" />
-			</a><br />
-			Informe endereço e selecione qual serviço público você precisa!
+			</a><br />Precisa encontrar algum serviço público?<br />
+			Informe seu local e selecione o serviço que você precisa!
 		</h1>
 	</div>
 	<div id="formulario">
@@ -40,10 +40,10 @@
 		</div>
 	</c:forEach>
 </div>
-<div id="selecionaTudo">Desmarcar todos serviços</div>
 <div id="mapa"></div>
+<div id="info">Clique no ícone do serviço no mapa para obter informações de contato.</div> 
 <div id="rodape">
-	Achou este site útil? Por favor clique e opine o que achou!
+	Achou este site útil? Clique e opine o que achou!
 </div>
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true"></script>

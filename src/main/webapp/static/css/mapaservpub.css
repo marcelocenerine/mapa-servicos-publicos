@@ -14,6 +14,7 @@ body {
 }
 h1 {
 	font-size: 11px;
+	color: #104E8B;
 }
 a, a:link, a:visited {
 	color: #11bad3;
@@ -26,6 +27,7 @@ a:hover, a:active {
 form  {
 	display:inline;
 	float:left;
+	font-family: Arial, Verdana;
 }
 .legenda {
 	text-align: center;
@@ -37,7 +39,7 @@ form  {
 .icone {
 	 text-align: center;
 	 float: left;
-	 margin-left: 20px;
+	 margin-left: 10px;
 }
 #cabecalho {
 	text-align: left;
@@ -56,7 +58,7 @@ form  {
 	color: #666;
 	display: block;
 	float: left;
-	font: 14px Arial, Verdana; 
+	font-size: 14px; 
 	padding: 4px 4px 4px 4px;
     border-radius: 10px 10px 10px 10px;
 	width: 620px; 
@@ -76,30 +78,31 @@ form  {
 #servicos {
 	margin-top: 10px;
 }
-#selecionaTudo {
-	font: 11px Arial, Verdana;
-	margin-top: 10px;
-	text-align: center;
-	color:  #2679A5;
+#info {
+	font-size: 11px;
+	clear: left;
+	margin-left: 25px;
+	color: #104E8B;
+	float: left;
 	font-weight: bold;
-	text-decoration: underline;;
-	cursor: pointer;
 }
 #mapa {
 	width: 100%;
 	height: 60%;
 	border-top: 2px solid #ccc;	
 	border-bottom: 2px solid #ccc;
-	margin-top: 20px;
+	margin-top: 80px;
 }
 #rodape {
-	font: 12px Arial, Verdana;
+	font-size: 12px;
 	text-align: center;
 	color:  #F11;
 	font-weight: bold;
 	text-decoration: underline;
 	margin-top: 5px;
+	margin-right: 25px;
 	cursor: pointer;
+	float: right;
 }
 
 /* =============== Estilos do autocomplete =============== */

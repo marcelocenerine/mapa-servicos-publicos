@@ -13,7 +13,8 @@ body {
 	line-height: 1.5em;
 }
 h1 {
-	font-size: 12px;
+	font-size: 11px;
+	color: #104E8B;
 }
 a, a:link, a:visited {
 	color: #11bad3;
@@ -26,6 +27,7 @@ a:hover, a:active {
 form  {
 	display:inline;
 	float:left;
+	font-family: Arial, Verdana;
 }
 .legenda {
 	text-align: center;
@@ -52,7 +54,7 @@ form  {
 	color: #666;
 	display: block;
 	float: left;
-	font: 14px Arial, Verdana; 
+	font-size: 14px; 
 	padding: 4px 4px 4px 4px;
     border-radius: 10px 10px 10px 10px;
 	width: 620px; 
@@ -63,7 +65,7 @@ form  {
     color: #FFF;
     cursor: pointer;
     height: 30px;
-    font: 14px Arial, Verdana;
+    font-size: 14px;
     width: 130px;
 }
 #formulario {
@@ -73,30 +75,29 @@ form  {
 	margin-top: 10px;
 	float:left;
 }
-#selecionaTudo {
-	font: 11px Arial, Verdana;
-	margin-top: 10px;
-	text-align: center;
-	color:  #2679A5;
+#info {
+	font-size: 11px;
+	margin-left: 20%;
+	color: #104E8B;
 	font-weight: bold;
-	text-decoration: underline;;
-	cursor: pointer;
+	float: left;	
 }
 #mapa {
 	width: 79%;
-	height: 75%;
+	height: 70%;
 	border: 2px solid #ccc;
 	margin-left: 20%;
 }
 #rodape {
-	font: 12px Arial, Verdana;
+	font-size: 12px;
 	text-align: center;
 	color:  #F11;
 	font-weight: bold;
 	text-decoration: underline;
 	margin-top: 5px;
-	margin-left: 20%;
+	margin-right: 10px;
 	cursor: pointer;
+	float: right;
 }
 
 /* =============== Estilos do autocomplete =============== */

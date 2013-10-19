@@ -41,7 +41,8 @@ function translateLocationToAddress(lat, lng, element) {
 }
 
 function searchAddress() {
-	 geocoder.geocode({ 'address': $('#txtEndereco').val() + ', Brasil', 'region': 'BR' }, function (results, status) {
+	var endereco = $.trim($('#txtEndereco').val());
+	 geocoder.geocode({ 'address': endereco + ', Brasil', 'region': 'BR' }, function (results, status) {
 		 if (status == google.maps.GeocoderStatus.OK) {
 				if (results[0]) {
 					latitude = results[0].geometry.location.lat();
@@ -56,7 +57,8 @@ function searchAddress() {
 function loadPoints() {
 	hideStreetView();
 	var servicos = getCheckBox();
-	if (servicos) {
+	var endereco = $.trim($('#txtEndereco').val());
+	if (servicos && endereco) {
 		blockMap();
 		$.getJSON('rest/api/servicos/lng/' + currentLocation.lng() + '/lat/' + currentLocation.lat() + '/categorias/' + servicos, function(pontos) {
 			clearMarkers();
@@ -89,7 +91,7 @@ function unblockMap() {
 
 function getCheckBox() {
 	var selecao = '';
-	$("input:checked[type=checkbox]").each(function() {
+	$('input:checked[type=checkbox]').each(function() {
 		selecao += $(this).val() + ',';
 	});
 	return selecao;
@@ -172,35 +174,28 @@ function bindComponentEvents() {
 	
 	$('#txtEndereco').keypress(function(e){
 		var tecla = (e.keyCode ? e.keyCode : e.which);
-		 if(tecla == 13 &&  $('#txtEndereco').val()){
+		var endereco = $.trim($('#txtEndereco').val());
+		if(tecla == 13 &&  endereco){
 			 searchAddress();
 		 }
 	});
 	
 	$('#btnEndereco').click(function() {
-		if ( $('#txtEndereco').val()) {
+		var endereco = $.trim($('#txtEndereco').val());
+		if (endereco) {
 			searchAddress();
 		}
 	});
 	
-	$("input:checkbox").click(function() {
+	$('input:checkbox').click(function() {
 		loadPoints();
-	});
-	
-	$('#selecionaTudo').click(function() {
-		if ($('#selecionaTudo').html() == 'Marcar todos serviços') {
-			$("input:checkbox").attr("checked",true);
-			$('#selecionaTudo').html('Desmarcar todos serviços');
-		} else {
-			$("input:checkbox").attr("checked",false);
-			$('#selecionaTudo').html('Marcar todos serviços');
-		} 
 	});
 }
 
+
 function initialize() {
 	$('#txtEndereco').val('');
-	//$("input:checkbox").attr("checked",true);
+	//$('input:checkbox').attr('checked',true);
 }
 
 $(document).ready(function () {
