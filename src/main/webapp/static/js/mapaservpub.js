@@ -195,7 +195,6 @@ function bindComponentEvents() {
 
 function initialize() {
 	$('#txtEndereco').val('');
-	//$('input:checkbox').attr('checked',true);
 }
 
 $(document).ready(function () {
