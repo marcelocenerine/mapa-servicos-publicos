@@ -14,28 +14,23 @@
 	<div>
 		<h1 id="logo">
 			<a href="home" title="Mapa de Serviços Públicos">
-				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Serviços Públicos" width="414" height="58"
-				onclick="_gaq.push(['_trackEvent', 'Home A', 'Logo', 'Logotipo']);" />
+				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Serviços Públicos" width="414" height="58" />
 			</a><br />Precisa encontrar algum serviço público?<br />
 			Informe seu local e selecione o serviço que você precisa!
 		</h1>
 	</div>
 	<div id="formulario">
-		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe rua ou cidade para visualizar servicos publicos no mapa" placeholder="Informe rua ou cidade para visualizar servicos publicos no mapa"
-		onclick="_gaq.push(['_trackEvent', 'Home A', 'Formulario', 'Caixa Texto Endereco']);" ></input>
-        <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa"
-        onclick="_gaq.push(['_trackEvent', 'Home A', 'Formulario', 'Botao']);" ></input>
+		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe rua ou cidade para visualizar servicos publicos no mapa" placeholder="Informe rua ou cidade para visualizar servicos publicos no mapa" ></input>
+        <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa" ></input>
 	</div>
 </div>
 <div id="servicos">
 	<input type="hidden" id= "listaCategorias" value="${categorias}" />
 	<c:forEach items="${categorias}" var="categoria">
 		<div class="icone">
-			<img src="img/${categoria}.png" alt="${categoria.descricao}"
-			onclick="_gaq.push(['_trackEvent', 'Home A', 'Ícone do Serviço', '${categoria}']);" />
+			<img src="img/${categoria}.png" alt="${categoria.descricao}" />
 			<div class="legenda">
-				<input type="checkbox" id="${categoria}" value="${categoria}" checked
-				onclick="_gaq.push(['_trackEvent', 'Home A', 'Checkbox', '${categoria}']);" />
+				<input type="checkbox" id="${categoria}" value="${categoria}" checked />
 				${categoria.descricao}
 			</div>
 		</div>
@@ -43,7 +38,7 @@
 </div>
 <div id="mapa"></div>
 <div id="info">Clique no ícone do serviço no mapa para obter informações de contato.</div> 
-<div id="rodape" onclick="_gaq.push(['_trackEvent', 'Home A', 'Link Rodapé', 'Pesquisa de Opinião']);">
+<div id="rodape">
 	Achou este site útil? Clique e opine o que achou!
 </div>
 

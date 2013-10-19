@@ -57,8 +57,7 @@ function searchAddress() {
 function loadPoints() {
 	hideStreetView();
 	var servicos = getCheckBox();
-	var endereco = $.trim($('#txtEndereco').val());
-	if (servicos && endereco) {
+	if (servicos) {
 		blockMap();
 		$.getJSON('rest/api/servicos/lng/' + currentLocation.lng() + '/lat/' + currentLocation.lat() + '/categorias/' + servicos, function(pontos) {
 			clearMarkers();
