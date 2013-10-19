@@ -58,7 +58,7 @@ form  {
 	color: #666;
 	display: block;
 	float: left;
-	font-size: 14px; 
+	font: 12px; 
 	padding: 4px 4px 4px 4px;
     border-radius: 10px 10px 10px 10px;
 	width: 620px; 
@@ -111,13 +111,13 @@ form  {
 	border-top: 1px solid #CCC;
 	cursor: pointer; 
 	font: 12px Arial, Verdana;
-	margin-left: 50px;
-	width: 670px;
+	width: 590px;
 	position: fixed;
 }
 .ui-autocomplete .ui-menu-item { 
 	list-style: none outside none;
-	padding: 10px 0px 0px 0px;
+	margin-top: 10px;
+	margin-left: -35px;
 }
 .ui-autocomplete .ui-menu-item:hover {
 	background: #E6E6FA; 

@@ -54,7 +54,7 @@ form  {
 	color: #666;
 	display: block;
 	float: left;
-	font-size: 14px; 
+	font-size: 12px; 
 	padding: 4px 4px 4px 4px;
     border-radius: 10px 10px 10px 10px;
 	width: 620px; 
@@ -77,16 +77,16 @@ form  {
 }
 #info {
 	font-size: 11px;
-	margin-left: 20%;
+	margin-left: 25%;
 	color: #104E8B;
 	font-weight: bold;
 	float: left;	
 }
 #mapa {
-	width: 79%;
+	width: 75%;
 	height: 70%;
 	border: 2px solid #ccc;
-	margin-left: 20%;
+	margin-left: 23%;
 }
 #rodape {
 	font-size: 12px;
@@ -95,7 +95,7 @@ form  {
 	font-weight: bold;
 	text-decoration: underline;
 	margin-top: 5px;
-	margin-right: 10px;
+	margin-right: 7%;
 	cursor: pointer;
 	float: right;
 }
@@ -106,13 +106,13 @@ form  {
 	border-top: 1px solid #CCC;
 	cursor: pointer; 
 	font: 12px Arial, Verdana;
-	margin-left: 50px;
-	width: 670px;
+	width: 590px;
 	position: fixed;
 }
 .ui-autocomplete .ui-menu-item { 
 	list-style: none outside none;
-	padding: 10px 0px 0px 0px;
+	margin-top: 10px;
+	margin-left: -35px;
 }
 .ui-autocomplete .ui-menu-item:hover {
 	background: #E6E6FA; 
