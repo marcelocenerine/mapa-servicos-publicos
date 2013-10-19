@@ -31,7 +31,8 @@
 	<input type="hidden" id="listaCategorias" value="${categorias}" />
 	<c:forEach items="${categorias}" var="categoria">
 		<div class="icone">
-			<img src="img/${categoria}.png" alt="${categoria.descricao}" />
+			<img src="img/${categoria}.png" alt="${categoria.descricao}"
+			onclick="_gaq.push(['_trackEvent', 'Home B', 'Ícone do Serviço', '${categoria}']);" />
 			<span class="legenda">
 				<input type="checkbox" id="${categoria}" value="${categoria}" 
 				onclick="_gaq.push(['_trackEvent', 'Home B', 'Checkbox', '${categoria}']);" />
@@ -42,7 +43,7 @@
 </div>
 <div id="mapa"></div>
 <div id="info">Clique no ícone do serviço no mapa para obter informações de contato.</div>
-<div id="rodape">
+<div id="rodape" onclick="_gaq.push(['_trackEvent', 'Home B', 'Link Rodapé', 'Pesquisa de Opinião']);">
 	Achou este site útil? Clique e opine o que achou!
 </div>
 
