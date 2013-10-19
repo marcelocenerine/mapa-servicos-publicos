@@ -21,7 +21,7 @@
 		</h1>
 	</div>
 	<div id="formulario">
-		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe onde (rua, cidade) deseja localizar serviço público" placeholder="Informe onde (rua ou cidade) deseja localizar servico publico"
+		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe rua ou cidade para visualizar servicos publicos no mapa" placeholder="Informe rua ou cidade para visualizar servicos publicos no mapa"
 		onclick="_gaq.push(['_trackEvent', 'Home A', 'Formulario', 'Caixa Texto Endereco']);" ></input>
         <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa"
         onclick="_gaq.push(['_trackEvent', 'Home A', 'Formulario', 'Botao']);" ></input>
