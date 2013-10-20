@@ -4,11 +4,11 @@ ga('send', 'pageview', {
 });
 
 $('#logotipo').click(function() {
-	  ga('send', 'event', 'Home B Logotipo', 'click');
+	  ga('send', 'event', 'Home B - Logotipo', 'click');
 });
 
 $('#txtEndereco').click(function() {
-	  ga('send', 'event', 'Home B Caixa de Texto Endereco', 'click');
+	  ga('send', 'event', 'Home B - Caixa de Texto Endereco', 'click');
 });
 
 $('#btnEndereco').click(function() {

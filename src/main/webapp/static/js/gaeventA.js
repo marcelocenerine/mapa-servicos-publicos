@@ -4,11 +4,11 @@ ga('send', 'pageview', {
 });
 
 $('#logotipo').click(function() {
-	  ga('send', 'event', 'Home A Logotipo', 'click');
+	  ga('send', 'event', 'Home A - Logotipo', 'click');
 });
 
 $('#txtEndereco').click(function() {
-	  ga('send', 'event', 'Home A Caixa de Texto Endereco', 'click');
+	  ga('send', 'event', 'Home A - Caixa de Texto Endereco', 'click');
 });
 
 $('#btnEndereco').click(function() {
