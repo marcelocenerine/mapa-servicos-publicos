@@ -130,7 +130,7 @@ function formatInfoWindowText(ponto) {
 			text += '<p>Email: ' + ponto.contato.email; + '</p>';
 		}
 	}
-	ga('send', 'event', 'Balao Informativo ' + ponto.categoria + ' em ' + ponto.localizacao.cidade + '/' + ponto.localizacao.uf, 'click');
+	ga('send', 'event', 'Balao Informativo ' + ponto.categoria.descricao + ' em ' + ponto.localizacao.cidade + '/' + ponto.localizacao.uf, 'click');
 	return text;
 }
 
