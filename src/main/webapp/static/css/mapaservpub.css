@@ -67,6 +67,7 @@ img {
     height: 30px;
     font: 14px Arial, Verdana;
     width: 130px;
+    clear: left;
 }
 #formulario {
 	padding-top: 50px;
