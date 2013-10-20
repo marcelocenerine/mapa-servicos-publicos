@@ -4,7 +4,7 @@
 <!DOCTYPE html> 
 <html lang="en"> 
 <head> 
-	<!-- Google Analytics Content Experiment code 
+	<!-- Google Analytics Content Experiment code -->
 	<script>function utmx_section(){}function utmx(){}(function(){var
 	k='77896413-0',d=document,l=d.location,c=d.cookie;
 	if(l.search.indexOf('utm_expid='+k)>0)return;
