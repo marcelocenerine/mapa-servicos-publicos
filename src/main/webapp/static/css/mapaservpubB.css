@@ -45,7 +45,8 @@ img {
 	padding-right: 60px;
 	float:left;
 }
-#txtEndereco {	
+#txtEndereco {
+	width: 50%;
 	background: #FFF;
 	color: #666;
 	display: block;
@@ -53,7 +54,6 @@ img {
 	font-size: 12px; 
 	padding: 4px 4px 4px 4px;
     border-radius: 10px 10px 10px 10px;
-	width: 620px; 
 }
 #btnEndereco {
 	background: #2679A5; 
@@ -62,13 +62,11 @@ img {
     cursor: pointer;
     height: 30px;
     font-size: 14px;
-    width: 130px;
 }
 #formulario {
 	padding-top: 50px;
 }
 #servicos {
-	margin-top: 10px;
 	float:left;
 }
 #selecioneservicos {
@@ -83,8 +81,7 @@ img {
 	float: left;	
 }
 #mapa {
-	width: 75%;
-	height: 72%;
+	height: 70%;
 	border: 2px solid #ccc;
 	margin-left: 23%;
 }
@@ -106,6 +103,8 @@ img {
 	color:  #F11;
 	text-decoration: underline;
 }
+
+
 /* =============== Estilos do autocomplete =============== */
 .ui-autocomplete { 
 	background: #FFF; 

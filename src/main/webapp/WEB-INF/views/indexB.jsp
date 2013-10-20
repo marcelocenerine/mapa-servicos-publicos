@@ -11,19 +11,18 @@
 </head>
 <body>
 <div id="cabecalho">
-	<div>
 		<h1 id="logo">
 			<a href="home" title="Mapa de Serviços Públicos">
 				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Serviços Públicos" width="414" height="58" />
 			</a><br />Precisa encontrar algum serviço público?<br />
 			Informe seu local e selecione o serviço que você precisa!
 		</h1>
-	</div>
 	<div id="formulario">
 		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe rua ou cidade para visualizar servicos publicos no mapa" placeholder="Informe rua ou cidade para visualizar servicos publicos no mapa" ></input>
         <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa"></input>
 	</div>
 </div>
+<br />
 <div id="servicos">
 	<div id="selecioneservicos">Selecione o(s) serviço(s):</div>
 	<input type="hidden" id="listaCategorias" value="${categorias}" />
