@@ -31,7 +31,7 @@ img {
 	color: #333;
 }
 .icone {
-	 margin-top: 7px;
+	 margin-top: 5px;
 }
 #cabecalho {
 	text-align: left;
@@ -70,6 +70,10 @@ img {
 #servicos {
 	margin-top: 10px;
 	float:left;
+}
+#selecioneservicos {
+	font-size: 14px;
+	font-weight: bold;
 }
 #info {
 	font-size: 11px;

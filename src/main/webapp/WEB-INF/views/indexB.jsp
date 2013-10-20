@@ -25,6 +25,7 @@
 	</div>
 </div>
 <div id="servicos">
+	<div id="selecioneservicos">Selecione o(s) serviço(s):</div>
 	<input type="hidden" id="listaCategorias" value="${categorias}" />
 	<c:forEach items="${categorias}" var="categoria">
 		<div class="icone">
