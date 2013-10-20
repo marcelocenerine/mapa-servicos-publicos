@@ -16,18 +16,14 @@ h1 {
 	font-size: 11px;
 	color: #104E8B;
 }
-a, a:link, a:visited {
-	color: #11bad3;
-	text-decoration: none;
-}
-a:hover, a:active {
-	background: #E6E6FA;
-	color: #FFF;
-}
 form  {
 	display:inline;
 	float:left;
 	font-family: Arial, Verdana;
+}
+img {
+	border: 0px;
+	vertical-align: middle;
 }
 .legenda {
 	text-align: center;
@@ -88,23 +84,29 @@ form  {
 }
 #mapa {
 	width: 100%;
-	height: 60%;
+	height: 63%;
 	border-top: 2px solid #ccc;	
 	border-bottom: 2px solid #ccc;
-	margin-top: 80px;
+	margin-top: 70px;
 }
 #rodape {
-	font-size: 12px;
+	font-size: 11px;
 	text-align: center;
 	color:  #F11;
 	font-weight: bold;
-	text-decoration: underline;
 	margin-top: 5px;
 	margin-right: 25px;
 	cursor: pointer;
 	float: right;
 }
-
+#rodape a, a:link, a:visited {
+	color:  #F11;
+	text-decoration: none;
+}
+#rodape a:hover, a:active {
+	color:  #F11;
+	text-decoration: underline;
+}
 /* =============== Estilos do autocomplete =============== */
 .ui-autocomplete { 
 	background: #FFF; 

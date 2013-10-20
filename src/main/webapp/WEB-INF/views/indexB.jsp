@@ -39,7 +39,9 @@
 <div id="mapa"></div>
 <div id="info">Clique no ícone do serviço no mapa para obter informações de contato.</div>
 <div id="rodape">
-	Achou este site útil? Clique e opine o que achou!
+	<a href="https://docs.google.com/forms/d/1SHueEvgOTn0sWbqj027Mxb9qM-3QID5SbiTGo0LduNw/viewform" title="Clique e responda a pesquisa de opinião" target="_blank">
+	<img src="img/opiniao-mapa-servico-publico.png"	width="32" height="30" alt="Clique e opine o que achou do Mapa de Serviços Públicos" />Achou este site útil? Clique aqui e opine!
+	</a>
 </div>
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true"></script>
