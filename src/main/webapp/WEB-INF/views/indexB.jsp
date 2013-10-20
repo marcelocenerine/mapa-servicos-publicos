@@ -13,7 +13,7 @@
 <div id="cabecalho">
 	<div>
 		<h1 id="logo">
-			<a href="homeB" title="Mapa de Serviços Públicos">
+			<a href="home" title="Mapa de Serviços Públicos">
 				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Serviços Públicos" width="414" height="58" />
 			</a><br />Precisa encontrar algum serviço público?<br />
 			Informe seu local e selecione o serviço que você precisa!
