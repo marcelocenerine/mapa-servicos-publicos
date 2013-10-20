@@ -17,6 +17,7 @@ function showWhereIam() {
 				defineCurrentLocation(position.coords.latitude, position.coords.longitude);
 				translateLocationToAddress(position.coords.latitude, position.coords.longitude, $('#txtEndereco'));
 				loadPoints();
+				ga('send', 'event', 'Geolocalizao Utilizada', 'browser');
 			}
 		);
 	}
@@ -129,6 +130,7 @@ function formatInfoWindowText(ponto) {
 			text += '<p>Email: ' + ponto.contato.email; + '</p>';
 		}
 	}
+	ga('send', 'event', 'Balao Informativo ' + ponto.nome, 'click');
 	return text;
 }
 

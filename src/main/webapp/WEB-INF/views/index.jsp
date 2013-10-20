@@ -29,7 +29,7 @@
 	<div>
 		<h1 id="logo">
 			<a href="home" title="Mapa de Serviços Públicos">
-				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Serviços Públicos" width="414" height="58" />
+				<img id="logotipo" src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Serviços Públicos" width="414" height="58" />
 			</a><br />Precisa encontrar algum serviço público?<br />
 			Informe seu local e selecione o serviço que você precisa!
 		</h1>
@@ -63,7 +63,8 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://malsup.github.io/jquery.blockUI.js"></script>
-<script type="text/javascript" src="js/mapaservpub.js"></script>
 <script type="text/javascript" src="js/googleanalytics.js"></script>
+<script type="text/javascript" src="js/gaeventA.js"></script>
+<script type="text/javascript" src="js/mapaservpub.js"></script>
 </body> 
 </html>
