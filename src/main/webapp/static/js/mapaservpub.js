@@ -130,7 +130,7 @@ function formatInfoWindowText(ponto) {
 			text += '<p>Email: ' + ponto.contato.email; + '</p>';
 		}
 	}
-	ga('send', 'event', 'Balao Informativo ' + ponto.nome, 'click');
+	ga('send', 'event', 'Balao Informativo ' + ponto.categoria + ' em ' + ponto.localizacao.cidade + '/' + ponto.localizacao.uf, 'click');
 	return text;
 }
 
@@ -164,6 +164,7 @@ function bindComponentEvents() {
 			});
 		},
 		select: function (event, ui) {
+			ga('send', 'event', 'Clique Autocomplete em ' + ui.item.value, 'click');
 			defineCurrentLocation(ui.item.latitude, ui.item.longitude);
 			loadPoints();
 		}
