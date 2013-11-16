@@ -27,11 +27,15 @@ img {
 }
 .legenda {
 	text-align: center;
-	font-size: 12px;
+	font-size: 10px;
 	color: #333;
+	margin-top: -10px;
+	font-weight: bold;
 }
 .icone {
-	 margin-top: 5px;
+	 text-align: center;
+	 float: left;
+	 margin-left: 10px;
 }
 #cabecalho {
 	text-align: left;
@@ -45,15 +49,15 @@ img {
 	padding-right: 60px;
 	float:left;
 }
-#txtEndereco {
-	width: 50%;
+#txtEndereco {	
 	background: #FFF;
 	color: #666;
 	display: block;
 	float: left;
-	font-size: 12px; 
+	font: 12px; 
 	padding: 4px 4px 4px 4px;
     border-radius: 10px 10px 10px 10px;
+	width: 50%; 
 }
 #btnEndereco {
 	background: #2679A5; 
@@ -61,29 +65,30 @@ img {
     color: #FFF;
     cursor: pointer;
     height: 30px;
-    font-size: 14px;
+    font: 14px Arial, Verdana;
+    width: 130px;
 }
 #formulario {
 	padding-top: 50px;
 }
 #servicos {
-	float:left;
-}
-#selecioneservicos {
-	font-size: 14px;
-	font-weight: bold;
+	margin-top: 10px;
+	float: clear;
 }
 #info {
 	font-size: 11px;
-	margin-left: 25%;
+	clear: left;
+	margin-left: 25px;
 	color: #104E8B;
+	float: left;
 	font-weight: bold;
-	float: left;	
 }
 #mapa {
-	height: 70%;
-	border: 2px solid #ccc;
-	margin-left: 23%;
+	width: 100%;
+	height: 63%;
+	border-top: 2px solid #ccc;	
+	border-bottom: 2px solid #ccc;
+	margin-top: 70px;
 }
 #rodape {
 	font-size: 11px;
@@ -91,7 +96,7 @@ img {
 	color:  #F11;
 	font-weight: bold;
 	margin-top: 5px;
-	margin-right: 7%;
+	margin-right: 25px;
 	cursor: pointer;
 	float: right;
 }
@@ -103,8 +108,6 @@ img {
 	color:  #F11;
 	text-decoration: underline;
 }
-
-
 /* =============== Estilos do autocomplete =============== */
 .ui-autocomplete { 
 	background: #FFF; 

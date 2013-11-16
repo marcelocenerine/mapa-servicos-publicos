@@ -21,8 +21,8 @@ public class IndexController {
 		return new ModelAndView("index", "categorias", Categoria.values());
 	}
 	
-	@RequestMapping(value="/homeB", method=GET)
+	@RequestMapping(value="/homeOld", method=GET)
 	public ModelAndView homeB() {
-		return new ModelAndView("indexB", "categorias", Categoria.values());
+		return new ModelAndView("indexOld", "categorias", Categoria.values());
 	}
 }
