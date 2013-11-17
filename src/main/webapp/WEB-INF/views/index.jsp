@@ -8,16 +8,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9"> 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 	<link rel="stylesheet" href="./css/mapaservpub.css" type="text/css" media="all">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 </head>
 <body>
 <div id="cabecalho">
 		<h1 id="logo">
 			<a href="home" title="Mapa de Serviços Públicos">
 				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Serviços Públicos" width="414" height="58" />
-			</a><br />Precisa encontrar algum serviço público?<br />
-			Informe seu local e selecione o serviço que você precisa!
+			</a>
 		</h1>
 	<div id="formulario">
+		Informe abaixo o local e selecione ao lado do mapa o serviço que você precisa:<br />
 		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe rua ou cidade para visualizar servicos publicos no mapa" placeholder="Informe rua ou cidade para visualizar servicos publicos no mapa" ></input>
         &nbsp;
         <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa"></input>
@@ -29,7 +31,7 @@
 	<c:forEach items="${categorias}" var="categoria">
 		<div class="icone">
 			<span class="legenda">
-				<input type="checkbox" id="${categoria}" value="${categoria}" class="regular-checkbox" />
+				<input type="checkbox" id="${categoria}" value="${categoria}" class="regular-checkbox" data-mini="true" />
 				<label for="${categoria}"></label>
 				<!-- <label for="${categoria}"> -->
 					<img src="img/${categoria}.png" alt="${categoria.descricao}" title="${categoria.descricao}" />
@@ -38,18 +40,40 @@
 			</span>
 		</div>
 	</c:forEach>
+	<span class="info">Em breve, mais serviços públicos!</span>
 </div>
 <div id="mapa"></div>
-<div id="info">Clique no ícone do serviço no mapa para obter informações de contato.</div>
+<div class="info" style="margin-left: 25%;">Clique no ícone do serviço no mapa para obter informações de contato.</div>
+<div id="links">
+	<a id="quemsomoslink" style="cursor: pointer;" title="Clique e confira quem criou o Mapa de Serviços Públicos">Quem Somos</a> | 
+	<a id="dadoslink" style="cursor: pointer;" title="Clique e confira a fonte de informações do Mapa de Serviços Públicos">Dados</a> | 
+	<a id="contatolink" style="cursor: pointer;" title="Clique para contatar os desenvolvedores do Mapa de Serviços Públicos">Contato</a></div>
 <div id="rodape">
+	<!--  
 	<a href="https://docs.google.com/forms/d/1SHueEvgOTn0sWbqj027Mxb9qM-3QID5SbiTGo0LduNw/viewform" title="Clique e responda a pesquisa de opinião" target="_blank">
 	<img src="img/opiniao-mapa-servico-publico.png"	width="32" height="30" alt="Clique e opine o que achou do Mapa de Serviços Públicos" />Achou este site útil? Clique aqui e opine!
 	</a>
+	-->
+</div>
+
+<div id="quemsomos" title="Quem Somos" style="display:none;">
+    <p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> é desenvolvido no Mestrado em Ciência da Computação da Universidade Federal de São Carlos (<strong>UFSCAR</strong>), campus Sorocaba/SP, pelos alunos:</p>
+    <ul><li>Marcelo Cenerino</li>
+    <li>Natascha Sava Hun</li>
+    <li>Rogério Colpani</li>
+    <li>Tibério Camargo Guimarães</li></ul>
+    <p>Sob a orientação do PhD Alexandre Álvaro, professor da disciplina Engenharia de Software.</p>
+</div>
+<div id="dados" title="Dados" style="display:none;">
+	<p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> utiliza a plataforma <strong>Dados Abertos Governamentais</strong> 
+	(<a href="http://www.dados.gov.br" target="_blank" title="Clique para abrir em nova aba/janela http://dados.gov.br">www.dados.gov.br</a>) como fonte dos endereços e contatos dos serviços públicos oferecidos.</p>
+</div>
+<div id="contato" title="Contato" style="display:none;">
+	<p>Entre em contato com o grupo através do e-mail: nshgeek@gmail.com</p>
 </div>
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
 <script type="text/javascript" src="http://malsup.github.io/jquery.blockUI.js"></script>
 <script type="text/javascript" src="js/googleanalytics.js"></script>
 <script type="text/javascript" src="js/gaevent.js"></script>

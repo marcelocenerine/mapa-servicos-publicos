@@ -192,6 +192,18 @@ function bindComponentEvents() {
 	$('input:checkbox').click(function() {
 		loadPoints();
 	});
+	
+	$('#quemsomoslink').click(function () {            
+        $("#quemsomos").dialog();
+    });
+	
+	$('#dadoslink').click(function () {            
+        $("#dados").dialog();
+    });
+	
+	$('#contatolink').click(function () {            
+        $("#contato").dialog();
+    });	
 }
 
 
