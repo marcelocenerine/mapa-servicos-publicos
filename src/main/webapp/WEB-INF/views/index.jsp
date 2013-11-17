@@ -19,21 +19,22 @@
 		</h1>
 	<div id="formulario">
 		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe rua ou cidade para visualizar servicos publicos no mapa" placeholder="Informe rua ou cidade para visualizar servicos publicos no mapa" ></input>
+        &nbsp;
         <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa"></input>
 	</div>
 </div>
 <br />
 <div id="servicos">
-	<div id="selecioneservicos">Selecione o(s) serviço(s):</div>
 	<input type="hidden" id="listaCategorias" value="${categorias}" />
 	<c:forEach items="${categorias}" var="categoria">
 		<div class="icone">
 			<span class="legenda">
-				<input type="checkbox" id="${categoria}" value="${categoria}" />
-				<label for="${categoria}">
+				<input type="checkbox" id="${categoria}" value="${categoria}" class="regular-checkbox" />
+				<label for="${categoria}"></label>
+				<!-- <label for="${categoria}"> -->
 					<img src="img/${categoria}.png" alt="${categoria.descricao}" title="${categoria.descricao}" />
 					${categoria.descricao}
-				</label>
+				<!-- </label> -->
 			</span>
 		</div>
 	</c:forEach>
