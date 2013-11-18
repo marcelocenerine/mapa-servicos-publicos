@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en"> 
 <head> 
 	<title>Mapa de Serviços Públicos Brasileiros</title>
@@ -45,7 +45,7 @@
 <div id="mapa"></div>
 <div class="info" style="margin-left: 25%;">Clique no ícone do serviço no mapa para obter informações de contato.</div>
 <div id="links">
-	<a id="quemsomoslink" style="cursor: pointer;" title="Clique e confira quem criou o Mapa de Serviços Públicos">Quem Somos</a> | 
+	<a id="sobrelink" style="cursor: pointer;" title="Clique e confira quem criou o Mapa de Serviços Públicos">Sobre</a> | 
 	<a id="dadoslink" style="cursor: pointer;" title="Clique e confira a fonte de informações do Mapa de Serviços Públicos">Dados</a> | 
 	<a id="contatolink" style="cursor: pointer;" title="Clique para contatar os desenvolvedores do Mapa de Serviços Públicos">Contato</a></div>
 <div id="rodape">
@@ -56,20 +56,20 @@
 	-->
 </div>
 
-<div id="quemsomos" title="Quem Somos" style="display:none;">
-    <p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> é desenvolvido no Mestrado em Ciência da Computação da Universidade Federal de São Carlos (<strong>UFSCAR</strong>), campus Sorocaba/SP, pelos alunos:</p>
-    <ul><li>Marcelo Cenerino</li>
-    <li>Natascha Sava Hun</li>
+<div id="sobre" title="Sobre o Mapa de Serviços Públicos" style="display:none;">
+    <p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> foi desenvolvido em 2013, durante a disciplina de Engenharia de Software do Mestrado em Ciência da Computação da Universidade Federal de São Carlos (<strong>UFSCAR</strong>), campus Sorocaba/SP, pelos alunos:</p>
+    <ul><li><a href="http://br.linkedin.com/in/marcelocenerino" target="_blank" title="Clique e confira perfil Linkedin de Marcelo Cenerino">Marcelo Cenerino</a></li>
+    <li><a href="http://br.linkedin.com/in/nataschash" target="_blank" title="Clique e confira perfil Linkedin de Natascha Sava Hun">Natascha Sava Hun</a></li>
     <li>Rogério Colpani</li>
     <li>Tibério Camargo Guimarães</li></ul>
     <p>Sob a orientação do PhD Alexandre Álvaro, professor da disciplina Engenharia de Software.</p>
 </div>
 <div id="dados" title="Dados" style="display:none;">
 	<p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> utiliza a plataforma <strong>Dados Abertos Governamentais</strong> 
-	(<a href="http://www.dados.gov.br" target="_blank" title="Clique para abrir em nova aba/janela http://dados.gov.br">www.dados.gov.br</a>) como fonte dos endereços e contatos dos serviços públicos oferecidos.</p>
+	(<a href="http://dados.gov.br/tag/Equipamentos%20p%C3%BAblicos" target="_blank" title="Clique para abrir em nova aba/janela http://dados.gov.br">www.dados.gov.br</a>) como fonte dos endereços e contatos dos serviços públicos oferecidos.</p>
 </div>
 <div id="contato" title="Contato" style="display:none;">
-	<p>Entre em contato com o grupo através do e-mail: nshgeek@gmail.com</p>
+	<p>Entre em contato com o grupo através do e-mail: nshgeek@gmail.com - Natascha Sava Hun</p>
 </div>
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true"></script>

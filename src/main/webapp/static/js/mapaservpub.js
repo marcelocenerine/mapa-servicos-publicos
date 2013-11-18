@@ -193,8 +193,8 @@ function bindComponentEvents() {
 		loadPoints();
 	});
 	
-	$('#quemsomoslink').click(function () {            
-        $("#quemsomos").dialog();
+	$('#sobrelink').click(function () {            
+        $("#sobre").dialog();
     });
 	
 	$('#dadoslink').click(function () {            

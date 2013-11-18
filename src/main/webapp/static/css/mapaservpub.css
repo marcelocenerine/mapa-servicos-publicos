@@ -6,6 +6,7 @@ html, body {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	background-color: #E6E6FA;
 }
 body { 
 	font-family: Arial, Verdana;
@@ -28,11 +29,11 @@ label {
 	color: #555;
 }
 a, a:link, a:visited {
-	color:  #2679A5;
+	color:  #222;
 	text-decoration: none;
 }
 a:hover, a:active {
-	color:  #000;
+	color:  #2679A5;
 	text-decoration: underline;
 }
 .info {
@@ -50,10 +51,10 @@ a:hover, a:active {
 }
 #cabecalho {
 	text-align: left;
-	background-color: #E6E6FA;
+	background-color: #fff;
 	border-bottom: 1px solid #2679A5;
 	padding: 0px 0px 20px 40px;
-	box-shadow: 0px 3px 3px #999;
+	box-shadow: 0px 5px 5px #999;
 }
 #links {
 	font-size: 12px;
@@ -61,8 +62,7 @@ a:hover, a:active {
 	height: 2px;
 	margin: 7px 0 7px 0;
 	position: relative;
-	background: #E6E6FA;
-	background-image: radial-gradient(circle farthest-corner at center, #B8B4B9 0%, #FFF 100%);
+	background-image: radial-gradient(circle farthest-corner at center, #2679A5 0%, #E6E6FA 100%);
 	text-align: center;
 }
 #logo {
@@ -95,11 +95,11 @@ a:hover, a:active {
 	float:left;
 	color: #555;
 	font-size: 12px;
-	border: 1px solid #2679A5;
 	border-radius: 4px 4px 4px 4px;
-	box-shadow: 3px 3px 3px #999;
+	box-shadow: 5px 5px 5px #999;
 	margin-left: 10px;
 	height: 70%;
+	background-color: #fff;
 }
 #selecioneservicos {
 	font-size: 14px;
@@ -109,9 +109,8 @@ a:hover, a:active {
 	height: 70%;
 	margin-left: 24%;
 	margin-right: 5%;
-	border: 1px solid #2679A5;
 	border-radius: 4px 4px 4px 4px;
-	box-shadow: 3px 3px 3px #999;
+	box-shadow: 5px 5px 5px #999;
 }
 #rodape {
 	font-size: 11px;
