@@ -44,6 +44,7 @@
 </div>
 <div id="mapa"></div>
 <div class="info" style="margin-left: 25%;">Clique no ícone do serviço no mapa para obter informações de contato.</div>
+<div id="barra"></div>
 <div id="links">
 	<a id="sobrelink" style="cursor: pointer;" title="Clique e confira quem criou o Mapa de Serviços Públicos">Sobre</a> | 
 	<a id="dadoslink" style="cursor: pointer;" title="Clique e confira a fonte de informações do Mapa de Serviços Públicos">Dados</a> | 
