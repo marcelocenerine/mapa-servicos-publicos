@@ -16,7 +16,8 @@ public enum Categoria {
 	INSS("INSS"), 
 	RFB("Receita Federal"), 
 	SINE("Sistema Nacional de Emprego"), 
-	UBS("Unidade Básica de Saúde"); 
+	UBS("Unidade Básica de Saúde"),
+	LOTERICA("Lotérica");
 	
 	private String descricao;
 	
