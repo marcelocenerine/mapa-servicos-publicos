@@ -2,6 +2,8 @@ var map;
 var geocoder;
 var markers = [];
 var infowindow = new google.maps.InfoWindow();
+var directionsDisplay;
+var directionsService;
 var defaultZoom = 4;
 var placeZoom = 15;
 var defaultLat = -14.235004;
@@ -57,6 +59,7 @@ function searchAddress() {
 
 function loadPoints() {
 	hideStreetView();
+	clearRoute();
 	var servicos = getCheckBox();
 	if (servicos) {
 		blockMap();
@@ -114,6 +117,33 @@ function addPoint(ponto) {
 	})(marker));
 }
 
+function closeInfoWindow() {
+	infowindow.close();
+}
+
+function drawRoute(lat, lng) {
+	clearRoute();
+	var request = {
+		origin: currentLocation,
+		destination: new google.maps.LatLng(lat, lng),
+		travelMode: google.maps.TravelMode.DRIVING
+	};
+	directionsDisplay = new google.maps.DirectionsRenderer();
+	directionsDisplay.setMap(map);
+	directionsService.route(request, function(response, status) {
+		if (status == google.maps.DirectionsStatus.OK) {
+			directionsDisplay.setDirections(response);
+		}
+	});
+}
+
+function clearRoute() {
+	if(directionsDisplay) {
+	    directionsDisplay.setMap(null);
+	    directionsDisplay = null;
+	}
+}
+
 function formatInfoWindowText(ponto) {
 	var text = '<p><strong>' + ponto.categoria.descricao + '</strong></p>';
 	if (ponto.nome) {
@@ -130,6 +160,7 @@ function formatInfoWindowText(ponto) {
 			text += '<p>Email: ' + ponto.contato.email; + '</p>';
 		}
 	}
+	text += '<p><a href="#" onclick="javascript:closeInfoWindow();drawRoute('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ');">Como chegar?</a></p>';
 	ga('send', 'event', 'Balao Informativo ' + ponto.categoria.descricao + ' em ' + ponto.localizacao.cidade + '/' + ponto.localizacao.uf, 'click');
 	return text;
 }
@@ -227,6 +258,7 @@ $(document).ready(function () {
 		animation: google.maps.Animation.DROP
 	});
 	geocoder = new google.maps.Geocoder();
+	directionsService = new google.maps.DirectionsService();
 	
 	initialize();
 	bindComponentEvents();
