@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.geo.Distance;
 import org.springframework.data.mongodb.core.geo.Metrics;
 import org.springframework.data.mongodb.core.geo.Point;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import br.com.servicospublicos.model.Categoria;
@@ -32,22 +33,25 @@ public class EstabelecimentoRepositoryImpl implements EstabelecimentoRepository 
 
 	@Override
 	public List<Estabelecimento> findByCategoriasAndCoordenadas(List<Categoria> categorias, Coordenadas coordenadas, Double distancia, Integer maxResults) {
-		return mongoTemplate.find(query(where("categoria").in(categorias)
-										.and("localizacao.coordenadas").nearSphere(new Point(coordenadas.getLongitude(), coordenadas.getLatitude()))
-																	   .maxDistance(new Distance(distancia, Metrics.KILOMETERS).getNormalizedValue())
-										.and("status").is(VISIBLE)
-										.and("publico").is(TRUE))
-								  .limit(maxResults), Estabelecimento.class);
+		Query query = query(where("categoria").in(categorias)
+							.and("localizacao.coordenadas").nearSphere(new Point(coordenadas.getLongitude(), coordenadas.getLatitude()))
+														   .maxDistance(new Distance(distancia, Metrics.KILOMETERS).getNormalizedValue())
+							.and("status").is(VISIBLE)
+							.and("publico").is(TRUE))
+							.limit(maxResults);
+		query.fields().exclude("status").exclude("publico").exclude("avaliacao");
+		return mongoTemplate.find(query, Estabelecimento.class);
 	}
 
 	@Override
 	public List<Estabelecimento> findByCategoriaAndCoordenadas(Categoria categoria, Coordenadas coordenadas, Double distancia, Integer maxResults) {
-		return mongoTemplate.find(query(where("categoria").is(categoria)
-										.and("localizacao.coordenadas").nearSphere(new Point(coordenadas.getLongitude(), coordenadas.getLatitude()))
-																	   .maxDistance(new Distance(distancia, Metrics.KILOMETERS).getNormalizedValue())
-										.and("status").is(VISIBLE)
-										.and("publico").is(TRUE))
-								  .limit(maxResults), Estabelecimento.class);
+		Query query = query(where("categoria").is(categoria)
+							.and("localizacao.coordenadas").nearSphere(new Point(coordenadas.getLongitude(), coordenadas.getLatitude()))
+														   .maxDistance(new Distance(distancia, Metrics.KILOMETERS).getNormalizedValue())
+							.and("status").is(VISIBLE)
+							.and("publico").is(TRUE))
+							.limit(maxResults);
+		query.fields().exclude("status").exclude("publico").exclude("avaliacoes");
+		return mongoTemplate.find(query, Estabelecimento.class);
 	}
-
 }

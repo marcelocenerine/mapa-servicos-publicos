@@ -1,13 +1,11 @@
 package br.com.servicospublicos.model;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="estabelecimentos")
 @JsonSerialize(include=Inclusion.NON_NULL)
-@JsonIgnoreProperties(value={"status"})
 public class Estabelecimento {
 	
 	public enum Status {HIDDEN, VISIBLE}
@@ -21,6 +19,7 @@ public class Estabelecimento {
 	private String atendimento;
 	private Boolean publico;
 	private Status status;
+	private Avaliacao avaliacao;
 	
 	public String getId() {
 		return id;
@@ -94,4 +93,11 @@ public class Estabelecimento {
 		this.site = site;
 	}
 
+	public Avaliacao getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setAvaliacao(Avaliacao avaliacao) {
+		this.avaliacao = avaliacao;
+	}
 }

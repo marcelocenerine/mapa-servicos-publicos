@@ -12,6 +12,5 @@ public interface EstabelecimentoRepository {
 	
 	List<Estabelecimento> findByCategoriaAndCoordenadas(Categoria categoria, Coordenadas coordenadas, Double distancia, Integer maxResults);
 	
-	@Deprecated
 	List<Estabelecimento> findByCategoriasAndCoordenadas(List<Categoria> categorias, Coordenadas coordenadas, Double distancia, Integer maxResults);
 }
