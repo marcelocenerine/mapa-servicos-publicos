@@ -2,8 +2,8 @@ var map;
 var geocoder;
 var markers = [];
 var infowindow = new google.maps.InfoWindow();
-var defaultZoom = 4;
-var placeZoom = 15;
+var defaultZoom = 3;
+var placeZoom = 16;
 var defaultLat = -14.235004;
 var defaultlng = -51.92528;
 var currentLocation;
@@ -34,8 +34,8 @@ function translateLocationToAddress(lat, lng, element) {
 	var location = new google.maps.LatLng(lat, lng);
 	geocoder.geocode({'latLng' : location}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			if (results[3]) {
-				$(element).val(results[3].formatted_address);
+			if (results[0]) {
+				$(element).val(results[0].formatted_address);
 			}
 		}
 	});
@@ -205,7 +205,6 @@ function bindComponentEvents() {
         $("#contato").dialog();
     });	
 }
-
 
 function initialize() {
 	$('#txtEndereco').val('');
