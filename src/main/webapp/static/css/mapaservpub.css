@@ -34,52 +34,28 @@ a:hover, a:active {
 	font-weight: bold;
 	text-decoration: underline;
 }
+.icone {
+	 margin-top: 5px;
+}
 .legenda {
 	text-align: center;
 	font-size: 11px;
 	font-weight: bold;
 	margin-right: 5px;
 }
-.icone {
-	 margin-top: 5px;
-}
 #cabecalho {
+	z-index: 2;
+	position: absolute;
+	top: 25px;
+	height: 90px;
+	width: 100%;
 	text-align: left;
 	background-color: #fff;
-	border-bottom: 1px solid #2679A5;
-	padding: 0px 0px 20px 40px;
+	
 	box-shadow: 0px 5px 5px #999;
 }
-#barra {
-	height: 2px;
-	margin: 1% 0 7px 0;
-	position: relative;
-	background-image: radial-gradient(circle farthest-corner at center, #2679A5 0%, #E6E6FA 100%);
-}
-#info {
-	font-size: 11px;
-	color: #555;
-	margin-left: 25%;
-}
-#links {
-	font-size: 12px;
-	text-align: center;
-}
-#logo {
-	padding-right: 60px;
-	float:left;
-}
-#txtEndereco {
-	width: 40%;
-	background: #FFF;
-	color: #666;
-	display: block;
-	float: left;
-	font-size: 12px; 
-	padding: 4px 4px 4px 4px;
-}
 #btnEndereco {
-	background: #2679A5; 
+	background-color: #2679A5; 
     color: #fff;
     cursor: pointer;
     height: 30px;
@@ -87,47 +63,55 @@ a:hover, a:active {
 }
 #formulario {
 	padding-top: 30px;
-	font-size: 12px;
+	font-size: 14px;
 	color: #555;
-	font-weight: bold;
+}
+#logo {
+	padding-right: 60px;
+	float:left;
+}
+#mapa {
+	z-index: 0;
+	position: relative;
+	top: 120px;
+	height: 100%;
+	width: 100%;
+	left: 0px;
+}
+#menu {
+	z-index: 2;
+	position: absolute;
+	top: 0px;	
+	width: 100%;
+	font-size: 14px;
+	background-color: #fff;
+	opacity:0.6;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 12px;
 }
 #servicos {
-	float:left;
-	color: #555;
+	z-index: 2;
+	position: absolute;
+	top: 150px;
+	left: 80px;
+	color: #444;
 	font-size: 12px;
 	border-radius: 4px 4px 4px 4px;
 	box-shadow: 5px 5px 5px #999;
 	margin-left: 10px;
 	height: 80%;
+	width: 20%;
 	background-color: #fff;
+	opacity:0.80;
 }
-#selecioneservicos {
-	font-size: 14px;
-	font-weight: bold;
+#txtEndereco {
+	width: 40%;
+	background: #FFF;
+	color: #666;
+	font-size: 12px; 
+	padding: 4px 4px 4px 4px;
 }
-#mapa {
-	height: 80%;
-	margin-left: 24%;
-}
-#rodape {
-	font-size: 11px;
-	text-align: center;
-	color:  #F11;
-	font-weight: bold;
-	margin-top: 5px;
-	margin-right: 10%;
-	cursor: pointer;
-	float: right;
-}
-#rodape a, a:link, a:visited {
-	color:  #F11;
-	text-decoration: none;
-}
-#rodape a:hover, a:active {
-	color:  #F11;
-	text-decoration: underline;
-}
-
 
 /* =============== Checkbox personalizado =============== */
 .regular-checkbox {

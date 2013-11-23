@@ -11,12 +11,21 @@
 	<link rel="stylesheet" href="./css/jqueryui.css" type="text/css" media="all">
 </head>
 <body>
+<div id="mapa"></div>
+<div id="menu">
+			<span style="padding-left: 5px">&nbsp;</span>
+			<a id="sobrelink" style="cursor: pointer;" title="Clique e confira quem criou o Mapa de Serviços Públicos">SOBRE</a>
+			<span style="padding-left: 30px">&nbsp;</span>
+			<a id="dadoslink" style="cursor: pointer;" title="Clique e confira a fonte de informações do Mapa de Serviços Públicos">DADOS</a>
+			<span style="padding-left: 30px">&nbsp;</span>
+			<a id="contatolink" style="cursor: pointer;" title="Clique para contatar os desenvolvedores do Mapa de Serviços Públicos">CONTATO</a>
+</div>
 <div id="cabecalho">
 		<h1 id="logo">
 			<a href="home" title="Mapa de Serviços Públicos">
 				<img src="img/mapa-servicos-publicos-logo.gif" alt="Mapa de Serviços Públicos" width="414" height="58" />
 			</a>
-		</h1>
+		</h1>		
 	<div id="formulario">
 		Informe abaixo o local e selecione ao lado do mapa o serviço que você precisa:<br />
 		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe rua ou cidade para visualizar servicos publicos no mapa" placeholder="Informe rua ou cidade para visualizar servicos publicos no mapa" ></input>
@@ -24,7 +33,6 @@
         <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa"></input>
 	</div>
 </div>
-<br />
 <div id="servicos">
 	<input type="hidden" id="listaCategorias" value="${categorias}" />
 	<c:forEach items="${categorias}" var="categoria">
@@ -40,21 +48,6 @@
 		</div>
 	</c:forEach>
 </div>
-<div id="mapa"></div>
-<div id="info">Clique no ícone do serviço no mapa para obter informações de contato.</div>
-<div id="barra"></div>
-<div id="links">
-	<a id="sobrelink" style="cursor: pointer;" title="Clique e confira quem criou o Mapa de Serviços Públicos">Sobre</a> | 
-	<a id="dadoslink" style="cursor: pointer;" title="Clique e confira a fonte de informações do Mapa de Serviços Públicos">Dados</a> | 
-	<a id="contatolink" style="cursor: pointer;" title="Clique para contatar os desenvolvedores do Mapa de Serviços Públicos">Contato</a></div>
-<div id="rodape">
-	<!--  
-	<a href="https://docs.google.com/forms/d/1SHueEvgOTn0sWbqj027Mxb9qM-3QID5SbiTGo0LduNw/viewform" title="Clique e responda a pesquisa de opinião" target="_blank">
-	<img src="img/opiniao-mapa-servico-publico.png"	width="32" height="30" alt="Clique e opine o que achou do Mapa de Serviços Públicos" />Achou este site útil? Clique aqui e opine!
-	</a>
-	-->
-</div>
-
 <div id="sobre" title="Sobre o Mapa de Serviços Públicos" style="display:none;">
     <p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> foi desenvolvido em 2013, durante a disciplina de Engenharia de Software do Mestrado em Ciência da Computação da Universidade Federal de São Carlos (<strong>UFSCAR</strong>), campus Sorocaba/SP, pelos alunos:</p>
     <ul><li><a href="http://br.linkedin.com/in/marcelocenerino" target="_blank" title="Clique e confira perfil Linkedin de Marcelo Cenerino">Marcelo Cenerino</a></li>
