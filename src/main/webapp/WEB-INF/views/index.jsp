@@ -8,8 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9"> 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 	<link rel="stylesheet" href="./css/mapaservpub.css" type="text/css" media="all">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<link rel="stylesheet" href="./css/jqueryui.css" type="text/css" media="all">
 </head>
 <body>
 <div id="cabecalho">
@@ -40,10 +39,9 @@
 			</span>
 		</div>
 	</c:forEach>
-	<span class="info">Em breve, mais serviços públicos!</span>
 </div>
 <div id="mapa"></div>
-<div class="info" style="margin-left: 25%;">Clique no ícone do serviço no mapa para obter informações de contato.</div>
+<div id="info">Clique no ícone do serviço no mapa para obter informações de contato.</div>
 <div id="barra"></div>
 <div id="links">
 	<a id="sobrelink" style="cursor: pointer;" title="Clique e confira quem criou o Mapa de Serviços Públicos">Sobre</a> | 
@@ -74,7 +72,8 @@
 </div>
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true"></script>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script type="text/javascript" src="http://malsup.github.io/jquery.blockUI.js"></script>
 <script type="text/javascript" src="js/googleanalytics.js"></script>
 <script type="text/javascript" src="js/gaevent.js"></script>
