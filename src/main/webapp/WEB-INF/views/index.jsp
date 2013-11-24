@@ -47,7 +47,6 @@
 			</span>
 		</div>
 	</c:forEach>
-	<span class="info">Em breve, mais serviços públicos!</span>
 </div>
 <div id="close" title="Clique para limpar rota">Fechar Rota&nbsp;&nbsp;&nbsp;X</div>
 <div id="rotamsg">Arraste no mapa ponto A para o local de partida.</div>
