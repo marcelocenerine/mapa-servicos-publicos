@@ -14,11 +14,11 @@
 <div id="mapa"></div>
 <div id="menu">
 			<span style="padding-left: 5px">&nbsp;</span>
-			<a id="sobrelink" style="cursor: pointer;" title="Clique e confira quem criou o Mapa de Serviços Públicos">SOBRE</a>
+			<a id="sobrelink" style="cursor: pointer;" title="Clique e confira quem criou o Mapa de Serviços Públicos">Sobre</a>
 			<span style="padding-left: 30px">&nbsp;</span>
-			<a id="dadoslink" style="cursor: pointer;" title="Clique e confira a fonte de informações do Mapa de Serviços Públicos">DADOS</a>
+			<a id="dadoslink" style="cursor: pointer;" title="Clique e confira a fonte de informações do Mapa de Serviços Públicos">Dados</a>
 			<span style="padding-left: 30px">&nbsp;</span>
-			<a id="contatolink" style="cursor: pointer;" title="Clique para contatar os desenvolvedores do Mapa de Serviços Públicos">CONTATO</a>
+			<a id="contatolink" style="cursor: pointer;" title="Clique para contatar os desenvolvedores do Mapa de Serviços Públicos">Contato</a>
 </div>
 <div id="cabecalho">
 		<h1 id="logo">
@@ -49,6 +49,7 @@
 	</c:forEach>
 </div>
 <div id="sobre" title="Sobre o Mapa de Serviços Públicos" style="display:none;">
+	<p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> tem a finalidade de auxiliar na busca por serviços públicos próximos à localização do usuário, através da indicação em mapa de um ou mais serviços a partir de geolocalização. Oferece, ainda, opção de indicar trajeto (rota) até o local desejado e informações de contato, como telefone, email e horário de funcionamento (quando disponibilizados pelo estabelecimento). Atualmente, mais de dez serviços estão disponíveis com pretensão de, em breve, adição de novos serviços públicos e opção de avaliação pelos usuários.</p>
     <p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> foi desenvolvido em 2013, durante a disciplina de Engenharia de Software do Mestrado em Ciência da Computação da Universidade Federal de São Carlos (<strong>UFSCAR</strong>), campus Sorocaba/SP, pelos alunos:</p>
     <ul><li><a href="http://br.linkedin.com/in/marcelocenerino" target="_blank" title="Clique e confira perfil Linkedin de Marcelo Cenerino">Marcelo Cenerino</a></li>
     <li><a href="http://br.linkedin.com/in/nataschash" target="_blank" title="Clique e confira perfil Linkedin de Natascha Sava Hun">Natascha Sava Hun</a></li>

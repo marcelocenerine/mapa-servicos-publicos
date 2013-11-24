@@ -81,7 +81,7 @@ a:hover, a:active {
 #menu {
 	z-index: 2;
 	position: absolute;
-	top: 0px;	
+	top: 0px;
 	width: 100%;
 	font-size: 14px;
 	background-color: #fff;
@@ -89,6 +89,7 @@ a:hover, a:active {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	font-size: 12px;
+	text-transform: uppercase;
 }
 #servicos {
 	z-index: 2;

@@ -2,7 +2,7 @@ var map;
 var geocoder;
 var markers = [];
 var infowindow = new google.maps.InfoWindow();
-var defaultZoom = 3;
+var defaultZoom = 4;
 var placeZoom = 16;
 var defaultLat = -14.235004;
 var defaultlng = -51.92528;
@@ -205,6 +205,7 @@ function bindComponentEvents() {
         $("#contato").dialog();
     });	
 }
+
 
 function initialize() {
 	$('#txtEndereco').val('');
