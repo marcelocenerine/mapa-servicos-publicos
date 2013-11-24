@@ -47,12 +47,12 @@ a:hover, a:active {
 	z-index: 2;
 	position: absolute;
 	top: 25px;
-	height: 90px;
+	height: 110px;
 	width: 100%;
 	text-align: left;
 	background-color: #fff;
-	
 	box-shadow: 0px 5px 5px #999;
+	overflow: auto;
 }
 #btnEndereco {
 	background-color: #2679A5; 
@@ -64,11 +64,10 @@ a:hover, a:active {
 #close {
 	z-index: 3;
 	position: absolute;
-	top: 150px;
-	left: 76%;
+	top: 170px;
+	right: 4.5%;
 	font-size: 11px;
 	border-radius: 4px 4px 4px 4px;
-	margin-left: 12%;
 	color: #fff;
 	font-weight: bold;
 	background-color: #555;
@@ -90,10 +89,11 @@ a:hover, a:active {
 #mapa {
 	z-index: 0;
 	position: relative;
-	top: 120px;
+	top: 140px;
 	height: 100%;
 	width: 100%;
 	left: 0px;
+	overflow: auto;
 }
 #menu {
 	z-index: 2;
@@ -111,7 +111,7 @@ a:hover, a:active {
 #rota {
 	z-index: 2;
 	position: absolute;
-	top: 167px;
+	top: 198px;
 	left: 75%;
 	font-size: 12px;
 	border-radius: 4px 4px 4px 4px;
@@ -123,7 +123,7 @@ a:hover, a:active {
 #rotamsg {
 	z-index: 3;
 	position: absolute;
-	top: 164px;
+	top: 184px;
 	left: 75%;
 	font-size: 11px;
 	border-radius: 4px 4px 4px 4px;
@@ -144,10 +144,10 @@ a:hover, a:active {
 	border-radius: 4px 4px 4px 4px;
 	box-shadow: 5px 5px 5px #999;
 	margin-left: 10px;
-	height: 80%;
 	width: 20%;
 	background-color: #fff;
 	opacity:0.80;
+	overflow: auto;
 }
 #txtEndereco {
 	width: 40%;
