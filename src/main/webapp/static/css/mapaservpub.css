@@ -32,7 +32,7 @@ a, a:link, a:visited {
 a:hover, a:active {
 	color:  #2679A5;
 	font-weight: bold;
-	text-decoration: underline;
+	text-decoration: blink;
 }
 .icone {
 	 margin-top: 5px;
@@ -81,6 +81,7 @@ a:hover, a:active {
 	padding-top: 30px;
 	font-size: 14px;
 	color: #555;
+	font-weight: bold;
 }
 #logo {
 	padding-right: 60px;
@@ -101,8 +102,7 @@ a:hover, a:active {
 	top: 0px;
 	width: 100%;
 	font-size: 14px;
-	background-color: #fff;
-	opacity:0.6;
+	background-color: #eee;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	font-size: 12px;
@@ -139,14 +139,14 @@ a:hover, a:active {
 	position: absolute;
 	top: 150px;
 	left: 80px;
-	color: #444;
+	color: #000;
 	font-size: 12px;
 	border-radius: 4px 4px 4px 4px;
 	box-shadow: 5px 5px 5px #999;
 	margin-left: 10px;
 	width: 20%;
 	background-color: #fff;
-	opacity:0.80;
+	opacity:0.75;
 	overflow: auto;
 }
 #txtEndereco {
