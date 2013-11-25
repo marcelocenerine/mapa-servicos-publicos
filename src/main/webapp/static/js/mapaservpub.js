@@ -160,6 +160,7 @@ function clearRoute() {
 
 function formatInfoWindowText(ponto) {
         var text = '<p><strong>' + ponto.categoria.descricao + '</strong></p>';
+        text += '<p><img src="http://maps.googleapis.com/maps/api/streetview?size=300x200&fov=110&pitch=10&location='+ ponto.localizacao.coordenadas.latitude + ',%20' + ponto.localizacao.coordenadas.longitude + '&sensor=false" /></p>';
         if (ponto.nome) {
                 text += '<p>' + ponto.nome + '</p>';
         }
