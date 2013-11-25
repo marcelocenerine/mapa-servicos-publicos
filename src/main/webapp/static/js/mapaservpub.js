@@ -216,9 +216,26 @@ $(document).ready(function () {
 	var options = {
 		zoom: defaultZoom,
 		center: currentLocation,
-		panControl: true,
-		streetViewControl: true,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		
+		mapTypeControl: true,
+	    mapTypeControlOptions: {
+	        position: google.maps.ControlPosition.TOP_RIGHT
+	    },
+	    panControl: true,
+	    panControlOptions: {
+	        position: google.maps.ControlPosition.RIGHT_TOP
+	    },
+	    zoomControl: true,
+	    zoomControlOptions: {
+	        style: google.maps.ZoomControlStyle.LARGE,
+	        position: google.maps.ControlPosition.RIGHT_TOP
+	    },
+	    scaleControl: true,
+	    streetViewControl: true,
+	    streetViewControlOptions: {
+	        position: google.maps.ControlPosition.RIGHT_TOP
+	    }
 	};
 	map = new google.maps.Map(document.getElementById('mapa'), options);
 	currentLocationMarker = new google.maps.Marker({

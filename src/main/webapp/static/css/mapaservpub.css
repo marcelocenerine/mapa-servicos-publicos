@@ -94,17 +94,18 @@ a:hover, a:active {
 #servicos {
 	z-index: 2;
 	position: absolute;
-	top: 150px;
-	left: 80px;
+	top: 128px;
+	left: 0px;
 	color: #444;
 	font-size: 12px;
 	border-radius: 4px 4px 4px 4px;
 	box-shadow: 5px 5px 5px #999;
 	margin-left: 10px;
-	height: 80%;
-	width: 20%;
+	height: 487px;
+	width: 273px;
 	background-color: #fff;
 	opacity:0.80;
+	padding: 10px;
 }
 #txtEndereco {
 	width: 40%;
