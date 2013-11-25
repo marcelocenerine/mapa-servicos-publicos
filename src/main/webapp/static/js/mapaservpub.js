@@ -5,7 +5,7 @@ var infowindow = new google.maps.InfoWindow();
 var directionsDisplay;
 var directionsService;
 var defaultZoom = 4;
-var placeZoom = 15;
+var placeZoom = 16;
 var defaultLat = -14.235004;
 var defaultlng = -51.92528;
 var currentLocation;
@@ -36,8 +36,8 @@ function translateLocationToAddress(lat, lng, element) {
 	var location = new google.maps.LatLng(lat, lng);
 	geocoder.geocode({'latLng' : location}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			if (results[3]) {
-				$(element).val(results[3].formatted_address);
+			if (results[0]) {
+				$(element).val(results[0].formatted_address);
 			}
 		}
 	});
@@ -247,9 +247,26 @@ $(document).ready(function () {
 	var options = {
 		zoom: defaultZoom,
 		center: currentLocation,
-		panControl: true,
-		streetViewControl: true,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		
+		mapTypeControl: true,
+	    mapTypeControlOptions: {
+	        position: google.maps.ControlPosition.TOP_RIGHT
+	    },
+	    panControl: true,
+	    panControlOptions: {
+	        position: google.maps.ControlPosition.RIGHT_TOP
+	    },
+	    zoomControl: true,
+	    zoomControlOptions: {
+	        style: google.maps.ZoomControlStyle.LARGE,
+	        position: google.maps.ControlPosition.RIGHT_TOP
+	    },
+	    scaleControl: true,
+	    streetViewControl: true,
+	    streetViewControlOptions: {
+	        position: google.maps.ControlPosition.RIGHT_TOP
+	    }
 	};
 	map = new google.maps.Map(document.getElementById('mapa'), options);
 	currentLocationMarker = new google.maps.Marker({

@@ -13,11 +13,11 @@ public enum Categoria {
 	CORREIOS("Correios"),
 	ENS_BASICO("Escola Ensino Básico"), 
 	ENS_SUPERIOR("Escola Ensino Superior"), 
-	INSS("INSS"), 
+	LOTERICA("Lotérica"),
+	INSS("Previdência Social"), 
 	RFB("Receita Federal"), 
 	SINE("Sistema Nacional de Emprego"), 
-	UBS("Unidade Básica de Saúde"),
-	LOTERICA("Lotérica");
+	UBS("Unidade Básica de Saúde");
 	
 	private String descricao;
 	
