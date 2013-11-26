@@ -27,7 +27,7 @@
 			</a>
 		</h1>		
 	<div id="formulario">
-		Informe abaixo o local e selecione ao lado do mapa o serviço que você precisa:<br />
+		Informe abaixo o local e selecione ao lado do mapa o serviço que precisa:<br />
 		<input type="text" id="txtEndereco" name="txtEndereco" class="ui-autocomplete-input" maxlength="80" title="Informe rua ou cidade para visualizar servicos publicos no mapa" placeholder="Informe rua ou cidade para visualizar servicos publicos no mapa" ></input>
         &nbsp;
         <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa"></input>
@@ -48,8 +48,14 @@
 		</div>
 	</c:forEach>
 </div>
+<div style="clear: both;"></div>
+<div id="close" title="Clique para limpar rota">Fechar Rota&nbsp;&nbsp;&nbsp;X</div>
+<div id="rotamsg">Arraste no mapa ponto A ao local de partida.</div>
+<div id="rota"></div>
 <div id="sobre" title="Sobre o Mapa de Serviços Públicos" style="display:none;">
-	<p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> tem a finalidade de auxiliar na busca por serviços públicos próximos à localização do usuário, através da indicação em mapa de um ou mais serviços a partir de geolocalização. Oferece, ainda, opção de indicar trajeto (rota) até o local desejado e informações de contato, como telefone, email e horário de funcionamento (quando disponibilizados pelo estabelecimento). Atualmente, mais de dez serviços estão disponíveis com pretensão de, em breve, adição de novos serviços públicos e opção de avaliação pelos usuários.</p>
+	<p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> tem a finalidade de auxiliar na busca por serviços públicos próximos à localização do usuário, através da indicação em mapa de um ou mais serviços a partir de geolocalização.</p>
+	<p>Oferece, ainda, opção de indicar trajeto (rota) até o local desejado e informações de contato, como telefone, email e horário de funcionamento (quando disponibilizados pelo estabelecimento).</p>
+	<p>Atualmente, mais de dez serviços estão disponíveis com pretensão de, em breve, adição de novos serviços públicos e opção de avaliação pelos usuários.</p>
     <p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> foi desenvolvido em 2013, durante a disciplina de Engenharia de Software do Mestrado em Ciência da Computação da Universidade Federal de São Carlos (<strong>UFSCAR</strong>), campus Sorocaba/SP, pelos alunos:</p>
     <ul><li><a href="http://br.linkedin.com/in/marcelocenerino" target="_blank" title="Clique e confira perfil Linkedin de Marcelo Cenerino">Marcelo Cenerino</a></li>
     <li><a href="http://br.linkedin.com/in/nataschash" target="_blank" title="Clique e confira perfil Linkedin de Natascha Sava Hun">Natascha Sava Hun</a></li>
@@ -65,7 +71,7 @@
 	<p>Entre em contato com o grupo através do e-mail: nshgeek@gmail.com - Natascha Sava Hun</p>
 </div>
 
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true&language=pt-BR"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script type="text/javascript" src="http://malsup.github.io/jquery.blockUI.js"></script>

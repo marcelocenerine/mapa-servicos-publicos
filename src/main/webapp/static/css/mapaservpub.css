@@ -32,7 +32,7 @@ a, a:link, a:visited {
 a:hover, a:active {
 	color:  #2679A5;
 	font-weight: bold;
-	text-decoration: underline;
+	text-decoration: blink;
 }
 .icone {
 	 margin-top: 5px;
@@ -47,12 +47,12 @@ a:hover, a:active {
 	z-index: 2;
 	position: absolute;
 	top: 25px;
-	height: 90px;
+	height: 110px;
 	width: 100%;
 	text-align: left;
 	background-color: #fff;
-	
 	box-shadow: 0px 5px 5px #999;
+	overflow: auto;
 }
 #btnEndereco {
 	background-color: #2679A5; 
@@ -60,6 +60,22 @@ a:hover, a:active {
     cursor: pointer;
     height: 30px;
     font-size: 14px;
+}
+#close {
+	z-index: 3;
+	position: absolute;
+	top: 170px;
+	right: 4.5%;
+	font-size: 11px;
+	border-radius: 4px 4px 4px 4px;
+	color: #fff;
+	font-weight: bold;
+	background-color: #555;
+	padding-left: 8px;
+	padding-right: 6px;
+	text-transform: uppercase;
+	display:none;
+	cursor: pointer;
 }
 #formulario {
 	padding-top: 30px;
@@ -73,10 +89,11 @@ a:hover, a:active {
 #mapa {
 	z-index: 0;
 	position: relative;
-	top: 120px;
+	top: 140px;
 	height: 100%;
 	width: 100%;
 	left: 0px;
+	overflow: auto;
 }
 #menu {
 	z-index: 2;
@@ -84,28 +101,68 @@ a:hover, a:active {
 	top: 0px;
 	width: 100%;
 	font-size: 14px;
-	background-color: #fff;
-	opacity:0.6;
+	background-color: #eee;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	font-size: 12px;
 	text-transform: uppercase;
 }
 #servicos {
+        z-index: 2;
+        position: absolute;
+        top: 128px;
+        left: 0px;
+        color: #000;
+        font-size: 12px;
+        border-radius: 4px 4px 4px 4px;
+        box-shadow: 5px 5px 5px #999;
+        margin-left: 10px;
+        width: 20%;
+        background-color: #fff;
+        opacity:0.75;
+        overflow: auto;
+        padding: 10px;
+}
+#rota {
+        z-index: 2;
+        position: absolute;
+        top: 198px;
+        left: 75%;
+        font-size: 12px;
+        border-radius: 4px 4px 4px 4px;
+        box-shadow: 5px 5px 5px #999;
+        margin-left: 10px;
+        width: 20%;
+        background-color: #b0d6fc;
+}
+#rotamsg {
+	z-index: 3;
+	position: absolute;
+	top: 184px;
+	left: 75%;
+	font-size: 11px;
+	border-radius: 4px 4px 4px 4px;
+	margin-left: 10px;
+	width: 20%;
+	color: #000;
+	font-weight: bold;
+	background-color: #7bc33b;
+	display:none;
+}
+#servicos {
 	z-index: 2;
 	position: absolute;
-	top: 128px;
+	top: 150px;
 	left: 0px;
-	color: #444;
+	color: #000;
 	font-size: 12px;
 	border-radius: 4px 4px 4px 4px;
 	box-shadow: 5px 5px 5px #999;
 	margin-left: 10px;
-	height: 487px;
-	width: 273px;
+	width: 260px;
 	background-color: #fff;
-	opacity:0.80;
-	padding: 10px;
+	opacity:0.75;
+	overflow: auto;
 }
 #txtEndereco {
 	width: 40%;
@@ -138,7 +195,9 @@ a:hover, a:active {
 .regular-checkbox:checked + label {
 	background-color: #e9ecee;
 	border: 1px solid #2679A5;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px 
+
+-12px rgba(255,255,255,0.1);
 	color: #99a1a7;
 }
 
