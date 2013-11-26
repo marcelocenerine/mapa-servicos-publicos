@@ -65,7 +65,7 @@ a:hover, a:active {
 	z-index: 3;
 	position: absolute;
 	top: 170px;
-	right: 4.5%;
+	right: 6.2%;
 	font-size: 11px;
 	border-radius: 4px 4px 4px 4px;
 	color: #fff;
@@ -93,7 +93,6 @@ a:hover, a:active {
 	height: 100%;
 	width: 100%;
 	left: 0px;
-	overflow: auto;
 }
 #menu {
 	z-index: 2;
@@ -127,7 +126,7 @@ a:hover, a:active {
         z-index: 2;
         position: absolute;
         top: 198px;
-        left: 75%;
+        left: 73%;
         font-size: 12px;
         border-radius: 4px 4px 4px 4px;
         box-shadow: 5px 5px 5px #999;
@@ -139,7 +138,7 @@ a:hover, a:active {
 	z-index: 3;
 	position: absolute;
 	top: 184px;
-	left: 75%;
+	left: 73%;
 	font-size: 11px;
 	border-radius: 4px 4px 4px 4px;
 	margin-left: 10px;
