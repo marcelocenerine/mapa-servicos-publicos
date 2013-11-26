@@ -164,6 +164,14 @@ function formatInfoWindowText(ponto) {
         if (ponto.nome) {
                 text += '<p>' + ponto.nome + '</p>';
         }
+        if (ponto.localizacao) {
+        	if (ponto.localizacao.endereco) {
+        		text += '<p>' + ponto.localizacao.endereco + '</p>';
+        	}
+        	if (ponto.localizacao.bairro && ponto.localizacao.cidade) {
+        		text += '<p>' + ponto.localizacao.bairro + ' - ' + ponto.localizacao.cidade;
+        	}
+        }
         if (ponto.atendimento) {
                 text += '<p>Atendimento: ' + ponto.atendimento + '</p>';
         }
