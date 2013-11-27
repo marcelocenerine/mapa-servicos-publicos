@@ -249,15 +249,27 @@ function bindComponentEvents() {
         });
         
         $('#sobrelink').click(function() {
-        		$("#sobre").dialog();
+        		autoOpen: false, 
+        		$("#sobre").dialog({ modal: true, width: 630 });
+        		ga('send', 'event', 'Sobre', 'menu');
+        });
+        
+        $('#comofuncionalink').click(function() {
+        	autoOpen: false, 
+    		$("#comofunciona").dialog({ modal: true, width: 630 });
+        	ga('send', 'event', 'Como Funciona', 'menu');
         });
         
         $('#dadoslink').click(function() {
-        		$("#dados").dialog();
+        		autoOpen: false, 
+        		$("#dados").dialog({ modal: true, width: 630 });
+        		ga('send', 'event', 'Dados', 'menu');
         });
         
         $('#contatolink').click(function() {
-        		$("#contato").dialog();
+        		autoOpen: false, 
+        		$("#contato").dialog({ modal: true, width: 630 });
+        		ga('send', 'event', 'Contato', 'menu');
         });
         
         $('#close').click(function() {
