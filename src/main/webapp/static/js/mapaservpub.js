@@ -159,8 +159,10 @@ function clearRoute() {
 }
 
 function formatInfoWindowText(ponto) {
-        var text = '<p><strong>' + ponto.categoria.descricao + '</strong></p>';
-        text += '<p><img src="http://maps.googleapis.com/maps/api/streetview?size=300x200&fov=110&pitch=10&location='+ ponto.localizacao.coordenadas.latitude + ',%20' + ponto.localizacao.coordenadas.longitude + '&sensor=false" /></p>';
+		var text = '<p><strong>' + ponto.categoria.descricao + '</strong></p>';
+	    text += '<p><a title="Clique e visualize o local através do Google Street View" href="#" onclick="javascript:showStreetView('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ')">';
+	    text += '<img src="http://maps.googleapis.com/maps/api/streetview?size=300x200&fov=110&pitch=10&location='+ ponto.localizacao.coordenadas.latitude + ',%20' + ponto.localizacao.coordenadas.longitude + '&sensor=false" />';
+	    text += '</a></p>';
         if (ponto.nome) {
                 text += '<p>' + ponto.nome + '</p>';
         }
@@ -198,6 +200,17 @@ function clearMarkers() {
                 e.setMap(null);
         });
         markers = [];
+}
+
+function showStreetView(lat, lng) {
+	var panorama = map.getStreetView();
+	var options = {
+		    position: new google.maps.LatLng(lat, lng),
+		    visible: true, 
+		    zoomControl: false,
+		    panControl: false
+	};
+	panorama.setOptions(options);
 }
 
 function hideStreetView() {
