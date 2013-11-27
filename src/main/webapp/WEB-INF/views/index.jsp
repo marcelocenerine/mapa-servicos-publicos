@@ -16,6 +16,8 @@
 			<span style="padding-left: 5px">&nbsp;</span>
 			<a id="sobrelink" style="cursor: pointer;" title="Clique e confira quem criou o Mapa de Serviços Públicos">Sobre</a>
 			<span style="padding-left: 30px">&nbsp;</span>
+			<a id="comofuncionalink" style="cursor: pointer;" title="Clique e confira como funciona o Mapa de Serviços Públicos">Como Funciona</a>			
+			<span style="padding-left: 30px">&nbsp;</span>
 			<a id="dadoslink" style="cursor: pointer;" title="Clique e confira a fonte de informações do Mapa de Serviços Públicos">Dados</a>
 			<span style="padding-left: 30px">&nbsp;</span>
 			<a id="contatolink" style="cursor: pointer;" title="Clique para contatar os desenvolvedores do Mapa de Serviços Públicos">Contato</a>
@@ -62,6 +64,9 @@
     <li>Rogério Colpani</li>
     <li>Tibério Camargo Guimarães</li></ul>
     <p>Sob a orientação do PhD Alexandre Álvaro, professor da disciplina Engenharia de Software.</p>
+</div>
+<div id="comofunciona" title="Como Funciona" style="display:none;">
+	<p>&nbsp;<iframe width="560" height="315" src="//www.youtube.com/embed/rpS4Q3upFKo?rel=0" frameborder="0"></iframe></p>
 </div>
 <div id="dados" title="Dados" style="display:none;">
 	<p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> utiliza a plataforma <strong>Dados Abertos Governamentais</strong> 
