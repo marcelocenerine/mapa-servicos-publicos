@@ -403,7 +403,7 @@ button.ui-button::-moz-focus-inner {
 }
 .ui-dialog .ui-dialog-titlebar {
 	padding: .4em 1em;
-	position: relative;
+	position: relative;	
 }
 .ui-dialog .ui-dialog-title {
 	float: left;
@@ -1176,9 +1176,4 @@ body .ui-tooltip {
 	opacity: .3;
 	filter: Alpha(Opacity=30);
 	border-radius: 8px;
-<<<<<<< HEAD
 }
-
-=======
-}
->>>>>>> 1f4372a167c4ac5603d5f05eec36886884d515b7
