@@ -7,6 +7,7 @@
 	<title>Mapa de Serviços Públicos Brasileiros</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9"> 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+	<meta name="description" content="Precisa encontrar um serviço público próximo a você? Saber horário de atendimento, telefone, e-mail? Localize no Mapa de Serviços Públicos Brasileiros!">
 	<link rel="stylesheet" href="./css/mapaservpub.css" type="text/css" media="all">
 	<link rel="stylesheet" href="./css/jqueryui.css" type="text/css" media="all">
 </head>
@@ -66,7 +67,7 @@
     <p>Sob a orientação do PhD Alexandre Álvaro, professor da disciplina Engenharia de Software.</p>
 </div>
 <div id="comofunciona" title="Como Funciona" style="display:none;">
-	<p>&nbsp;<iframe width="560" height="315" src="//www.youtube.com/embed/rpS4Q3upFKo?rel=0" frameborder="0"></iframe></p>
+	<p>&nbsp;<iframe width="560" height="315" src="//www.youtube.com/embed/qKQocFb-snU?rel=0" frameborder="0"></iframe></p>
 </div>
 <div id="dados" title="Dados" style="display:none;">
 	<p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> utiliza a plataforma <strong>Dados Abertos Governamentais</strong> 
