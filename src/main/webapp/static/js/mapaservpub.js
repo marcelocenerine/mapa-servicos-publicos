@@ -159,34 +159,34 @@ function clearRoute() {
 }
 
 function formatInfoWindowText(ponto) {
-		var text = '<p><strong>' + ponto.categoria.descricao + '</strong></p>';
-	    text += '<p><a title="Clique e visualize o local através do Google Street View" href="#" onclick="javascript:showStreetView('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ')">';
+		var text = '<div><strong>' + ponto.categoria.descricao + '</strong></div>';
+	    text += '<div><a title="Clique e visualize o local através do Google Street View" href="#" onclick="javascript:showStreetView('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ')">';
 	    text += '<img src="http://maps.googleapis.com/maps/api/streetview?size=300x200&fov=110&pitch=10&location='+ ponto.localizacao.coordenadas.latitude + ',%20' + ponto.localizacao.coordenadas.longitude + '&sensor=false" />';
-	    text += '</a></p>';
+	    text += '</a></div>';
         if (ponto.nome) {
-                text += '<p>' + ponto.nome + '</p>';
+                text += '<div><strong>' + ponto.nome + '</strong></div>';
         }
         if (ponto.localizacao) {
         	if (ponto.localizacao.endereco) {
-        		text += '<p>' + ponto.localizacao.endereco + '</p>';
+        		text += '<div>' + ponto.localizacao.endereco + '</div>';
         	}
         	if (ponto.localizacao.bairro && ponto.localizacao.cidade) {
-        		text += '<p>' + ponto.localizacao.bairro + ' - ' + ponto.localizacao.cidade;
+        		text += '<div>' + ponto.localizacao.bairro + ' - ' + ponto.localizacao.cidade;
         	}
         }
         if (ponto.atendimento) {
-                text += '<p>Atendimento: ' + ponto.atendimento + '</p>';
+                text += '<div>Atendimento: ' + ponto.atendimento + '</div>';
         }
         if (ponto.contato) {
                 if (ponto.contato.telefones) {
-                        text += '<p>Telefones: ' + ponto.contato.telefones.join(', ') + '</p>';
+                        text += '<div>Telefones: ' + ponto.contato.telefones.join(', ') + '</div>';
                 }
                 if (ponto.contato.email) {
-                        text += '<p>Email: ' + ponto.contato.email; + '</p>';
+                        text += '<div>Email: ' + ponto.contato.email; + '</div>';
                 }
         }
-        text += '<p><a title="Clique e confira trajeto caminhando" href="#" onclick="javascript:closeInfoWindow();drawRoute('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ', 1);"><img src="img/walking.jpg" alt="Como chegar a pé?" title="Como chegar a pé?" height="28" width="17" />Como chegar a pé?</a></p>';
-        text += '<p><a title="Clique e confira trajeto dirigindo" href="#" onclick="javascript:closeInfoWindow();drawRoute('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ', 0);"><img src="img/driving.jpg" alt="Como chegar de carro?" title="Como chegar de carro?" height="24" width="24" />Como chegar de carro?</a></p>';
+        text += '<div><a title="Clique e confira trajeto caminhando" href="#" onclick="javascript:closeInfoWindow();drawRoute('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ', 1);"><img src="img/walking.jpg" alt="Como chegar a pé?" title="Como chegar a pé?" height="28" width="17" />Como chegar a pé?</a></div>';
+        text += '<div><a title="Clique e confira trajeto dirigindo" href="#" onclick="javascript:closeInfoWindow();drawRoute('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ', 0);"><img src="img/driving.jpg" alt="Como chegar de carro?" title="Como chegar de carro?" height="24" width="24" />Como chegar de carro?</a></div>';
         ga('send', 'event', 'Balao Informativo ' + ponto.categoria.descricao + ' em ' + ponto.localizacao.cidade + '/' + ponto.localizacao.uf, 'click');
         return text;
 }
