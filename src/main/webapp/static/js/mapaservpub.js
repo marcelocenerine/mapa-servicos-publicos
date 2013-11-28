@@ -292,12 +292,32 @@ function bindComponentEvents() {
         });
 }
 
-
-function initialize() {
-        $('#txtEndereco').val('');
+function loadFacebookAPI() {
+	$.getScript('//connect.facebook.net/pt_BR/all.js', function(){
+		FB.init({
+			appId      : $('#fb-app-id').val(),
+			status     : false,
+			cookie     : true,
+			xfbml      : false
+		});
+		
+		$(".boxFacebook a.fb-login-button").on('click', function() {
+			FB.login(function(response) {									
+	      	    if (response.authResponse) {
+	      	    	FB.api(response.authResponse.userID + '?fields=id,name,picture.width(30).height(30)', function(resp){
+	      	    		$('.boxFacebook input#name').val(resp.name);
+	      	    		$('.boxFacebook input#pictureUrl').val(resp.picture.data.url);
+	    				$('.boxFacebook form').attr('action', 'user/id/' + resp.userID + '/login').submit();
+	    			});
+	      	    }
+			});
+		});
+		
+		$("a.fb-login-button").removeClass('disableFacebook');
+	});
 }
 
-$(document).ready(function () {
+function loadGMaps() {
 	currentLocation = new google.maps.LatLng(defaultLat, defaultlng);
 	var options = {
 		zoom: defaultZoom,
@@ -331,7 +351,15 @@ $(document).ready(function () {
 	});
 	geocoder = new google.maps.Geocoder();
 	directionsService = new google.maps.DirectionsService();
-	
+}
+
+function initialize() {
+        $('#txtEndereco').val('');
+        loadGMaps();
+        loadFacebookAPI();
+}
+
+$(document).ready(function () {
 	initialize();
 	bindComponentEvents();
 	showWhereIam();	

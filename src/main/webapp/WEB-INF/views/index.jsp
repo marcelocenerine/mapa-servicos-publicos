@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <!DOCTYPE html>
 <html lang="en"> 
@@ -21,6 +22,7 @@
 			<a id="dadoslink" style="cursor: pointer;" title="Clique e confira a fonte de informações do Mapa de Serviços Públicos">Dados</a>
 			<span style="padding-left: 30px">&nbsp;</span>
 			<a id="contatolink" style="cursor: pointer;" title="Clique para contatar os desenvolvedores do Mapa de Serviços Públicos">Contato</a>
+			<span style="padding-left: 30px">&nbsp;</span>
 </div>
 <div id="cabecalho">
 		<h1 id="logo">
@@ -34,6 +36,7 @@
         &nbsp;
         <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa"></input>
 	</div>
+	<t:facebookAuth />
 </div>
 <div id="servicos">
 	<input type="hidden" id="listaCategorias" value="${categorias}" />

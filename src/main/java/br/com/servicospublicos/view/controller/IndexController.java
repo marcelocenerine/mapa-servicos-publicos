@@ -1,4 +1,4 @@
-package br.com.servicospublicos.controller;
+package br.com.servicospublicos.view.controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -10,7 +10,7 @@ import br.com.servicospublicos.model.Categoria;
 
 @Controller
 public class IndexController {
-
+	
 	@RequestMapping(value="/", method=GET)
 	public String root() {
 		return "redirect:/home";
@@ -18,11 +18,6 @@ public class IndexController {
 
 	@RequestMapping(value="/home", method=GET)
 	public ModelAndView home() {
-		return new ModelAndView("index", "categorias", Categoria.values());
-	}
-	
-	@RequestMapping(value="/homeOld", method=GET)
-	public ModelAndView homeB() {
-		return new ModelAndView("indexOld", "categorias", Categoria.values());
+		return new ModelAndView("index").addObject("categorias", Categoria.values());
 	}
 }
