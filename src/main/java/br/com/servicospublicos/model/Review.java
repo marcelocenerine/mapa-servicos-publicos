@@ -2,11 +2,11 @@ package br.com.servicospublicos.model;
 
 import java.util.Date;
 
-public class ItemAvaliacao {
+public class Review {
 
-	private Integer nota;
-	private String comentario;
 	private String usuario;
+	private Integer nota = 0;
+	private String comentario;
 	private Date data;
 	
 	public Integer getNota() {

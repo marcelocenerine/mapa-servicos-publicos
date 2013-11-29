@@ -4,22 +4,25 @@ import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
+@JsonSerialize(include=Inclusion.NON_NULL)
 public class Avaliacao {
 
 	@JsonIgnore
-	private Long quantidade;
+	private Long count = 0L;
 	@JsonIgnore
-	private Double somaNotas;
-	private List<ItemAvaliacao> avaliacoes;
+	private Long somaNotas = 0L;
+	private List<Review> reviews;
 	
-	public List<ItemAvaliacao> getAvaliacoes() {
-		return avaliacoes;
+	public List<Review> getReviews() {
+		return reviews;
 	}
 
 	@JsonProperty
-	public Integer getAvaliacao() {
-		if (quantidade == null || quantidade == 0) return null;
-		return (int) Math.round(somaNotas / quantidade);
+	public int getNotaMedia() {
+		if (count == 0) return 0;
+		return (int) Math.round(somaNotas / new Double(count));
 	}
 }
