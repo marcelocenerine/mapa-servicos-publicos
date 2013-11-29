@@ -1,4 +1,4 @@
-package br.com.servicospublicos.rest.controller;
+package br.com.servicospublicos.rest.endpoint;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -21,7 +21,7 @@ import br.com.servicospublicos.model.Review;
 
 @Controller
 @RequestMapping("rest/api")
-public class EstabelecimentoController {
+public class EstabelecimentoRest {
 	
 	@Inject
 	private EstabelecimentoBusiness business;
@@ -41,7 +41,7 @@ public class EstabelecimentoController {
 		return business.buscar(categorias, Coordenadas.from(longitude, latitute));
 	}
 	
-	@RequestMapping(value="/servicos/estabelecimento/{id}/review", method=POST, consumes="application/json;charset=UTF-8", produces="application/json;charset=UTF-8")
+	@RequestMapping(value="/secure/servicos/estabelecimento/{id}/review", method=POST, consumes="application/json;charset=UTF-8", produces="application/json;charset=UTF-8")
 	public @ResponseBody Estabelecimento adicionarReview(@PathVariable String id, @RequestBody Review review) {
 		return business.adicionarReview(id, review);
 	}
