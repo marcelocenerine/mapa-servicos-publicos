@@ -302,15 +302,17 @@ function loadFacebookAPI() {
 		});
 		
 		$(".boxFacebook a.fb-login-button").on('click', function() {
-			FB.login(function(response) {									
-	      	    if (response.authResponse) {
-	      	    	FB.api(response.authResponse.userID + '?fields=id,name,picture.width(30).height(30)', function(resp){
-	      	    		$('.boxFacebook input#name').val(resp.name);
-	      	    		$('.boxFacebook input#pictureUrl').val(resp.picture.data.url);
-	    				$('.boxFacebook form').attr('action', 'user/id/' + resp.userID + '/login').submit();
-	    			});
-	      	    }
-			});
+			if (!$(this).hasClass('disableFacebook')) {
+				FB.login(function(response) {									
+		      	    if (response.authResponse) {
+		      	    	FB.api(response.authResponse.userID + '?fields=id,name,picture.width(30).height(30)', function(resp){
+		      	    		$('.boxFacebook input#name').val(resp.name);
+		      	    		$('.boxFacebook input#pictureUrl').val(resp.picture.data.url);
+		    				$('.boxFacebook form').attr('action', 'user/id/' + resp.id + '/login').submit();
+		    			});
+		      	    }
+				});
+			}
 		});
 		
 		$("a.fb-login-button").removeClass('disableFacebook');
