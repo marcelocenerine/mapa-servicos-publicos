@@ -37,7 +37,6 @@
         &nbsp;
         <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no Mapa"></input>
 	</div>
-	<t:facebookAuth />
 </div>
 <div id="servicos">
 	<input type="hidden" id="listaCategorias" value="${categorias}" />

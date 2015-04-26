@@ -160,7 +160,7 @@ function clearRoute() {
 
 function formatInfoWindowText(ponto) {
 		var text = '<div><strong>' + ponto.categoria.descricao + '</strong></div>';
-	    text += '<div><a title="Clique e visualize o local através do Google Street View" href="#" onclick="javascript:showStreetView('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ')">';
+	    text += '<div><a title="Clique e visualize o local atravï¿½s do Google Street View" href="#" onclick="javascript:showStreetView('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ')">';
 	    text += '<img src="http://maps.googleapis.com/maps/api/streetview?size=300x200&fov=110&pitch=10&location='+ ponto.localizacao.coordenadas.latitude + ',%20' + ponto.localizacao.coordenadas.longitude + '&sensor=false" />';
 	    text += '</a></div>';
         if (ponto.nome) {
@@ -185,7 +185,7 @@ function formatInfoWindowText(ponto) {
                         text += '<div>Email: ' + ponto.contato.email; + '</div>';
                 }
         }
-        text += '<div><a title="Clique e confira trajeto caminhando" href="#" onclick="javascript:closeInfoWindow();drawRoute('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ', 1);"><img src="img/walking.jpg" alt="Como chegar a pé?" title="Como chegar a pé?" height="28" width="17" />Como chegar a pé?</a></div>';
+        text += '<div><a title="Clique e confira trajeto caminhando" href="#" onclick="javascript:closeInfoWindow();drawRoute('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ', 1);"><img src="img/walking.jpg" alt="Como chegar a pï¿½?" title="Como chegar a pï¿½?" height="28" width="17" />Como chegar a pï¿½?</a></div>';
         text += '<div><a title="Clique e confira trajeto dirigindo" href="#" onclick="javascript:closeInfoWindow();drawRoute('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ', 0);"><img src="img/driving.jpg" alt="Como chegar de carro?" title="Como chegar de carro?" height="24" width="24" />Como chegar de carro?</a></div>';
         ga('send', 'event', 'Balao Informativo ' + ponto.categoria.descricao + ' em ' + ponto.localizacao.cidade + '/' + ponto.localizacao.uf, 'click');
         return text;
@@ -292,33 +292,6 @@ function bindComponentEvents() {
         });
 }
 
-function loadFacebookAPI() {
-	$.getScript('//connect.facebook.net/pt_BR/all.js', function(){
-		FB.init({
-			appId      : $('#fb-app-id').val(),
-			status     : false,
-			cookie     : true,
-			xfbml      : false
-		});
-		
-		$(".boxFacebook a.fb-login-button").on('click', function() {
-			if (!$(this).hasClass('disableFacebook')) {
-				FB.login(function(response) {									
-		      	    if (response.authResponse) {
-		      	    	FB.api(response.authResponse.userID + '?fields=id,name,picture.width(30).height(30)', function(resp){
-		      	    		$('.boxFacebook input#name').val(resp.name);
-		      	    		$('.boxFacebook input#pictureUrl').val(resp.picture.data.url);
-		    				$('.boxFacebook form').attr('action', 'user/id/' + resp.id + '/login').submit();
-		    			});
-		      	    }
-				});
-			}
-		});
-		
-		$("a.fb-login-button").removeClass('disableFacebook');
-	});
-}
-
 function loadGMaps() {
 	currentLocation = new google.maps.LatLng(defaultLat, defaultlng);
 	var options = {
@@ -358,7 +331,6 @@ function loadGMaps() {
 function initialize() {
         $('#txtEndereco').val('');
         loadGMaps();
-        loadFacebookAPI();
 }
 
 $(document).ready(function () {

@@ -9,19 +9,16 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.geo.Distance;
 import org.springframework.data.mongodb.core.geo.Metrics;
 import org.springframework.data.mongodb.core.geo.Point;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 import br.com.servicospublicos.model.Categoria;
 import br.com.servicospublicos.model.Coordenadas;
 import br.com.servicospublicos.model.Estabelecimento;
-import br.com.servicospublicos.model.Review;
 
 @Repository
 public class EstabelecimentoRepositoryImpl implements EstabelecimentoRepository {
@@ -61,18 +58,7 @@ public class EstabelecimentoRepositoryImpl implements EstabelecimentoRepository 
 					  .include("categoria")
 					  .include("nome")
 					  .include("localizacao")
-					  .include("contato")
-					  .include("avaliacao.count")
-					  .include("avaliacao.somaNotas");
+					  .include("contato");
 		return query;
-	}
-
-	@Override
-	public Estabelecimento addReview(String idEstabelecimento, Review review) {
-		Query findQuery = query(where("id").is(idEstabelecimento));
-		Update update = new Update().inc("avaliacao.count", 1)
-									.inc("avaliacao.somaNotas", review.getNota())
-									.push("avaliacao.reviews", review);
-		return mongoTemplate.findAndModify(findQuery, update, new FindAndModifyOptions().returnNew(true), Estabelecimento.class);
 	}
 }

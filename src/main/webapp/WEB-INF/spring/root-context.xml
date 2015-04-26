@@ -36,6 +36,4 @@
 	</bean>
 	
 	<mongo:repositories base-package="br.com.servicospublicos.repository" />
-	
- 
 </beans>

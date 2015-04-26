@@ -19,7 +19,6 @@ public class Estabelecimento {
 	private String atendimento;
 	private Boolean publico;
 	private Status status;
-	private Avaliacao avaliacao;
 	
 	public String getId() {
 		return id;
@@ -91,13 +90,5 @@ public class Estabelecimento {
 
 	public void setSite(String site) {
 		this.site = site;
-	}
-
-	public Avaliacao getAvaliacao() {
-		return avaliacao;
-	}
-
-	public void setAvaliacao(Avaliacao avaliacao) {
-		this.avaliacao = avaliacao;
 	}
 }
