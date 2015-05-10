@@ -7,4 +7,4 @@ MAINTAINER Marcelo Cenerino <marcelocenerine@gmail.com>
 
 ADD data /tmp/mapaservicospublicos/data/
 
-RUN /tmp/mapaservicospublicos/data/restore_backup.sh /tmp/mapaservicospublicos/data/db_bkp_20150426.tar.gz
+RUN ["/tmp/mapaservicospublicos/data/restore_backup.sh", "/tmp/mapaservicospublicos/data/db_bkp_20150426.tar.gz"]
