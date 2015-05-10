@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 DBPATH="/data/db"
 LOGPATH="/var/log/mongodb.log"
