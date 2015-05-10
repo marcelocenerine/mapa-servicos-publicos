@@ -1,0 +1,9 @@
+db:
+  image: marcelocenerine/mapa-servicos-publicos-db:latest
+app:
+  image: marcelocenerine/mapa-servicos-publicos-app:latest
+  links:
+    - db:db-container
+  ports:
+    - 8080:8080
+
