@@ -5,6 +5,8 @@
 FROM       marcelocenerine/mongodb-docker-container:latest
 MAINTAINER Marcelo Cenerino <marcelocenerine@gmail.com>
 
-ADD data /tmp/mapaservicospublicos/data/
+WORKDIR /tmp/mapaservicospublicos/
+ADD data ./
 
-RUN ["/tmp/mapaservicospublicos/data/restore_backup.sh", "/tmp/mapaservicospublicos/data/db_bkp_20150426.tar.gz"]
+RUN ["chmod", "+x", "restore_backup.sh"]
+RUN ["./restore_backup.sh", "db_bkp_20150426.tar.gz"]
