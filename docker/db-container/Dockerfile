@@ -9,4 +9,4 @@ WORKDIR /tmp/mapaservicospublicos/
 ADD data ./
 
 RUN ["chmod", "+x", "restore_backup.sh"]
-RUN ["./restore_backup.sh", "db_bkp_20150426.tar.gz"]
+RUN ["./restore_backup.sh", "db_bkp_20150511.tar.gz"]
