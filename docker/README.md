@@ -1,4 +1,4 @@
-### Run Mongodb + Tomcat containers in one go using [docker-compose](https://docs.docker.com/compose/)
+### Run the application (MongoDB + Tomcat containers) with a single command using [docker-compose](https://docs.docker.com/compose/)
 
 
     docker-compose up -d
