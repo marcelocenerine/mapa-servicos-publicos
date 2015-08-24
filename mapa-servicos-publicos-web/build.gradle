@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+
+group = 'br.ufscar'
+version = '1.0.1-SNAPSHOT'
+
+war {
+    archiveName 'mapa-servicos-publicos.war'
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-context:3.1.1.RELEASE',
+            'org.springframework:spring-webmvc:3.1.1.RELEASE',
+            'org.springframework.data:spring-data-mongodb:1.2.1.RELEASE',
+            'org.codehaus.jackson:jackson-mapper-asl:1.9.13',
+            'org.mongodb:mongo-java-driver:2.11.2',
+            'javax.inject:javax.inject:1'
+
+    providedCompile 'javax.servlet:servlet-api:2.5'
+}
