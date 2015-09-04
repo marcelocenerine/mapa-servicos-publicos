@@ -1,1 +1,1 @@
-include 'mapa-servicos-publicos-web'
+include 'mapa-servicos-publicos-web', 'docker:app-container', 'docker:db-container'

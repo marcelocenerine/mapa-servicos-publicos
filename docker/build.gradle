@@ -1,0 +1,30 @@
+subprojects {
+    apply plugin: 'docker'
+}
+
+project(':docker:app-container') {
+    task buildImage(type: Docker) {
+        dockerfile = file('./Dockerfile')
+        tag = 'marcelocenerine/mapa-servicos-publicos-app'
+        tagVersion = 'latest'
+    }
+}
+
+project(':docker:db-container') {
+    task buildImage(type: Docker) {
+        dockerfile = file('./Dockerfile')
+        tag = 'marcelocenerine/mapa-servicos-publicos-db'
+        tagVersion = 'latest'
+        stageDir = file('.')
+    }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'se.transmode.gradle:gradle-docker:1.2'
+    }
+}
