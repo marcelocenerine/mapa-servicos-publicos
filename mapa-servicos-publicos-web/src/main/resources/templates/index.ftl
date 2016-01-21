@@ -1,7 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
-
 <!DOCTYPE html>
 <html lang="en"> 
 <head> 
@@ -9,8 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9"> 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 	<meta name="description" content="Precisa encontrar um serviço público próximo a você? Saber horário de atendimento, telefone, e-mail? Localize no Mapa de Serviços Públicos Brasileiros!">
-	<link rel="stylesheet" href="./css/mapaservpub.css" type="text/css" media="all">
-	<link rel="stylesheet" href="./css/jqueryui.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/mapaservpub.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/jqueryui.css" type="text/css" media="all">
 </head>
 <body>
 <div id="mapa"></div>
@@ -39,19 +35,16 @@
 	</div>
 </div>
 <div id="servicos">
-	<input type="hidden" id="listaCategorias" value="${categorias}" />
-	<c:forEach items="${categorias}" var="categoria">
+	<#list categorias as categoria>
 		<div class="icone">
 			<span class="legenda">
 				<input type="checkbox" id="${categoria}" value="${categoria}" class="regular-checkbox" data-mini="true" />
 				<label for="${categoria}"></label>
-				<!-- <label for="${categoria}"> -->
 					<img src="img/${categoria}.png" alt="${categoria.descricao}" title="${categoria.descricao}" />
 					${categoria.descricao}
-				<!-- </label> -->
 			</span>
 		</div>
-	</c:forEach>
+	</#list>
 </div>
 <div style="clear: both;"></div>
 <div id="close" title="Clique para limpar rota">Fechar Rota&nbsp;&nbsp;&nbsp;X</div>
@@ -64,8 +57,6 @@
     <p>O projeto <em><strong>Mapa de Serviços Públicos</strong></em> foi desenvolvido em 2013, durante a disciplina de Engenharia de Software do Mestrado em Ciência da Computação da Universidade Federal de São Carlos (<strong>UFSCAR</strong>), campus Sorocaba/SP, pelos alunos:</p>
     <ul><li><a href="http://br.linkedin.com/in/marcelocenerino" target="_blank" title="Clique e confira perfil Linkedin de Marcelo Cenerino">Marcelo Cenerino</a></li>
     <li><a href="http://br.linkedin.com/in/nataschash" target="_blank" title="Clique e confira perfil Linkedin de Natascha Sava Hun">Natascha Sava Hun</a></li>
-    <li>Rogério Colpani</li>
-    <li>Tibério Camargo Guimarães</li></ul>
     <p>Sob a orientação do PhD Alexandre Álvaro, professor da disciplina Engenharia de Software.</p>
 </div>
 <div id="comofunciona" title="Como Funciona" style="display:none;">
@@ -76,9 +67,13 @@
 	(<a href="http://dados.gov.br/tag/Equipamentos%20p%C3%BAblicos" target="_blank" title="Clique para abrir em nova aba/janela http://dados.gov.br">www.dados.gov.br</a>) como fonte dos endereços e contatos dos serviços públicos oferecidos.</p>
 </div>
 <div id="contato" title="Contato" style="display:none;">
-	<p>Entre em contato com o grupo através do e-mail: nshgeek@gmail.com - Natascha Sava Hun</p>
+	<p>Entre em contato com o grupo através do e-mail: marcelocenerine@gmail.com</p>
 </div>
 
-<t:scriptsLoader />
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true&language=pt-BR"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="http://malsup.github.io/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/mapaservpub.js"></script>
 </body> 
 </html>

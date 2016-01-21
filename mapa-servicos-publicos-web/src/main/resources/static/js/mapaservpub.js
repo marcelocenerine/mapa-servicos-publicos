@@ -19,7 +19,6 @@ function showWhereIam() {
                                 defineCurrentLocation(position.coords.latitude, position.coords.longitude);
                                 translateLocationToAddress(position.coords.latitude, position.coords.longitude, $('#txtEndereco'));
                                 loadPoints();
-                                ga('send', 'event', 'Geolocalizao Utilizada', 'browser');
                         }
                 );
         }
@@ -63,7 +62,7 @@ function loadPoints() {
         var servicos = getCheckBox();
         if (servicos) {
                 blockMap();
-                $.getJSON('rest/api/servicos/lng/' + currentLocation.lng() + '/lat/' + currentLocation.lat() + '/categorias/' + servicos, function(pontos) {
+                $.getJSON('api/v1/estabelecimentos?lng=' + currentLocation.lng() + '&lat=' + currentLocation.lat() + '&categorias=' + servicos, function(pontos) {
                         clearMarkers();
                         $.each(pontos, function(index, ponto) {
                                 addPoint(ponto);
@@ -160,7 +159,7 @@ function clearRoute() {
 
 function formatInfoWindowText(ponto) {
 		var text = '<div><strong>' + ponto.categoria.descricao + '</strong></div>';
-	    text += '<div><a title="Clique e visualize o local atrav�s do Google Street View" href="#" onclick="javascript:showStreetView('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ')">';
+	    text += '<div><a title="Clique e visualize o local através do Google Street View" href="#" onclick="javascript:showStreetView('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ')">';
 	    text += '<img src="http://maps.googleapis.com/maps/api/streetview?size=300x200&fov=110&pitch=10&location='+ ponto.localizacao.coordenadas.latitude + ',%20' + ponto.localizacao.coordenadas.longitude + '&sensor=false" />';
 	    text += '</a></div>';
         if (ponto.nome) {
@@ -185,9 +184,8 @@ function formatInfoWindowText(ponto) {
                         text += '<div>Email: ' + ponto.contato.email; + '</div>';
                 }
         }
-        text += '<div><a title="Clique e confira trajeto caminhando" href="#" onclick="javascript:closeInfoWindow();drawRoute('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ', 1);"><img src="img/walking.jpg" alt="Como chegar a p�?" title="Como chegar a p�?" height="28" width="17" />Como chegar a p�?</a></div>';
+        text += '<div><a title="Clique e confira trajeto caminhando" href="#" onclick="javascript:closeInfoWindow();drawRoute('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ', 1);"><img src="img/walking.jpg" alt="Como chegar a pé?" title="Como chegar a pé?" height="28" width="17" />Como chegar a pé?</a></div>';
         text += '<div><a title="Clique e confira trajeto dirigindo" href="#" onclick="javascript:closeInfoWindow();drawRoute('+ ponto.localizacao.coordenadas.latitude + ',' + ponto.localizacao.coordenadas.longitude + ', 0);"><img src="img/driving.jpg" alt="Como chegar de carro?" title="Como chegar de carro?" height="24" width="24" />Como chegar de carro?</a></div>';
-        ga('send', 'event', 'Balao Informativo ' + ponto.categoria.descricao + ' em ' + ponto.localizacao.cidade + '/' + ponto.localizacao.uf, 'click');
         return text;
 }
 
@@ -232,7 +230,6 @@ function bindComponentEvents() {
                         });
                 },
                 select: function (event, ui) {
-                        ga('send', 'event', 'Clique Autocomplete em ' + ui.item.value, 'click');
                         defineCurrentLocation(ui.item.latitude, ui.item.longitude);
                         loadPoints();
                 }
@@ -264,25 +261,21 @@ function bindComponentEvents() {
         $('#sobrelink').click(function() {
         		autoOpen: false, 
         		$("#sobre").dialog({ modal: true, width: 630 });
-        		ga('send', 'event', 'Sobre', 'menu');
         });
         
         $('#comofuncionalink').click(function() {
         	autoOpen: false, 
     		$("#comofunciona").dialog({ modal: true, width: 630 });
-        	ga('send', 'event', 'Como Funciona', 'menu');
         });
         
         $('#dadoslink').click(function() {
         		autoOpen: false, 
         		$("#dados").dialog({ modal: true, width: 630 });
-        		ga('send', 'event', 'Dados', 'menu');
         });
         
         $('#contatolink').click(function() {
         		autoOpen: false, 
         		$("#contato").dialog({ modal: true, width: 630 });
-        		ga('send', 'event', 'Contato', 'menu');
         });
         
         $('#close').click(function() {
