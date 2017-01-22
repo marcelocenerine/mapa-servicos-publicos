@@ -5,8 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9"> 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 	<meta name="description" content="Precisa encontrar um serviço público próximo a você? Saber horário de atendimento, telefone, e-mail? Localize no Mapa de Serviços Públicos Brasileiros!">
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" type="text/css" media="all">
 	<link rel="stylesheet" href="css/mapaservpub.css" type="text/css" media="all">
-	<link rel="stylesheet" href="css/jqueryui.css" type="text/css" media="all">
 </head>
 <body>
 <div id="mapa"></div>
@@ -71,8 +71,8 @@
 </div>
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQftpBSaMVPXUWPimQ4QdcUb8foJgV6P4&sensor=true&language=pt-BR"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://malsup.github.io/jquery.blockUI.js"></script>
 <script type="text/javascript" src="js/mapaservpub.js"></script>
 </body> 
