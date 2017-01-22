@@ -12,7 +12,7 @@ import com.mongodb.MongoClientURI;
 @Configuration
 public class MongoConfig {
 
-	@Value("${MONGOHQ_URL}")
+	@Value("${MONGODB_URI}")
 	private String mongoUrl;
 
 	@Bean

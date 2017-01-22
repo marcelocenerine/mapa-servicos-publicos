@@ -4,6 +4,6 @@ MAINTAINER Marcelo Cenerino <marcelocenerine@gmail.com>
 
 COPY *.jar /opt/cenerino/
 
-ENV MONGOHQ_URL mongodb://db-container:27017/mapaservicospublicosdb
+ENV MONGODB_URI mongodb://db-container:27017/mapaservicospublicosdb
 
 ENTRYPOINT ["java", "-jar", "/opt/cenerino/mapa-servicos-publicos.jar"]
