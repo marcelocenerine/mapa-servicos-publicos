@@ -5,13 +5,13 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Coordenadas {
+public @Getter @Setter class Coordenadas {
 
 	@Field("lng")
-	private @Getter @Setter double longitude;
+	private double longitude;
 
 	@Field("lat")
-	private @Getter @Setter double latitude;
+	private double latitude;
 
 	public Coordenadas() {}
 

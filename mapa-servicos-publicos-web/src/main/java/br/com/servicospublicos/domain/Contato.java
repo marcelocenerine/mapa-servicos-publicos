@@ -5,8 +5,8 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Contato {
-	private @Getter @Setter String email;
-	private @Getter @Setter List<String> telefones;
-	private @Getter @Setter List<String> fax;
+public @Getter @Setter class Contato {
+	private String email;
+	private List<String> telefones;
+	private List<String> fax;
 }
